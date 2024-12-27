@@ -1,0 +1,119 @@
+/* Mobile-first styles */
+.dropdown-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    display: none; /* Hide by default */
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.logo-image {
+    width: 70%; /* Adjust as needed for mobile view */
+}
+
+.search-input {
+    height: 34px;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 300px;    
+}
+
+.mobile-menu-icon {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: #018fe5; /* Change the color to your desired color */
+}
+
+/* Flexbox container for header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Flexbox container for navigation */
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-items {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    list-style-type: none;
+    color: black;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    border: 1px solid;
+    z-index: 1000;
+
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-button {
+    background-color: #018fe5; /* Change this to your desired background color */
+    color: white; /* Optional: Change the text color */
+    border: none; /* Optional: Remove the border */
+    padding: 0px 20px; /* Optional: Add padding */
+    border-radius: 5px; /* Optional: Add border radius for rounded corners */
+    cursor: pointer; /* Optional: Change the cursor to pointer */
+    height: 34px;
+    box-sizing: border-box;
+    width: 65px;
+}
+/* Styles for larger screens */
+@media all and (min-width: 600px) {
+    .nav-items {
+        display: flex; /* Show navigation items */
+        flex-direction: row;
+    }
+    .mobile-menu-icon {
+        display: none; /* Hide hamburger icon */
+    }
+    .logo-image {
+        width: 70%; /* Adjust as needed for larger view */
+    }
+    .search-input {
+        width: 300px; /* Adjust as needed for larger view */
+    }
+}
