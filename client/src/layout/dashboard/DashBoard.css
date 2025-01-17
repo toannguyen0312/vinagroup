@@ -18,6 +18,8 @@
 
 .logo-image {
     width: 70%; /* Adjust as needed for mobile view */
+    margin-top: -20 px;
+    padding-top: 0;
 }
 
 .search-input {
@@ -36,7 +38,6 @@
 
 /* Flexbox container for header */
 header {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -100,6 +101,7 @@ header {
     height: 34px;
     box-sizing: border-box;
     width: 65px;
+    margin-left: 5px;
 }
 /* Styles for larger screens */
 @media all and (min-width: 600px) {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import logovinagroup from "./logovinagroup.jpg";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./DashBoard.css";
+import MainSlider from "./mainSlider"; // Import the MainSlider component
 
 function Dashboard() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ function Dashboard() {
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
 
@@ -47,25 +48,25 @@ function Dashboard() {
                         </form>
                     </div>
                 </div>
-                <p>
-                    <div className="nav-container">
-                        <nav ref={menuRef}>                           
-
-                            {/* Dropdown menu for navigation */}
-                            <ul className={`nav-items ${mobileMenuOpen ? 'dropdown-menu show' : ''}`}>
-                                <li className="nav-item">Home</li>
-                                <li className="nav-item">Giới Thiệu</li>
-                                <li className="nav-item">Du Lịch Nước Ngoài</li>
-                                <li className="nav-item">Du Lịch Trong Nước</li>
-                                <li className="nav-item">Teambuilding & Sự Kiện</li>
-                                <li className="nav-item">Cẩm Nang Du Lịch</li>
-                                <li className="nav-item">Góc Truyền Thông</li>
-                                <li className="nav-item">Liên Hệ</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </p>
+                <div className="nav-container">
+                    <nav ref={menuRef}>
+                        {/* Dropdown menu for navigation */}
+                        <ul className={`nav-items ${mobileMenuOpen ? 'dropdown-menu show' : ''}`}>
+                            <li className="nav-item">Home</li>
+                            <li className="nav-item">Giới Thiệu</li>
+                            <li className="nav-item">Du Lịch Nước Ngoài</li>
+                            <li className="nav-item">Du Lịch Trong Nước</li>
+                            <li className="nav-item">Teambuilding & Sự Kiện</li>
+                            <li className="nav-item">Cẩm Nang Du Lịch</li>
+                            <li className="nav-item">Góc Truyền Thông</li>
+                            <li className="nav-item">Liên Hệ</li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
+            <section>
+                <MainSlider /> {/* Include the MainSlider component */}
+            </section>
         </main>
     );
 }
