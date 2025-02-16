@@ -2,15 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 import logovinagroup from "./logovinagroup.jpg";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./DashBoard.css";
-import MainSlider from "./mainSlider"; // Import the MainSlider component
+import MainSlider from "./mainSlider"; 
+import TourCardForm from "./TourCardForm";
+import Footer from "./footer";
 
 function Dashboard() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const menuRef = useRef(null);
 
     const toggleNav = () => {
-        console.log("Hamburger icon clicked!"); // Logging to check if click works
-        setMobileMenuOpen(!mobileMenuOpen); // Toggle the mobile menu state
+        console.log("Hamburger icon clicked!"); 
+        setMobileMenuOpen(!mobileMenuOpen); 
     };
 
     const handleClickOutside = (event) => {
@@ -42,9 +44,13 @@ function Dashboard() {
                                 id="tour"
                                 placeholder="Bạn muốn du lịch ở đâu"
                                 required={true}
-                                className="search-input"
+                                className="search-input shadow bg-white rounded"
                             />
-                            <button className="bi bi-search search-button" type="button"></button>
+                            <button type="button" className="search-button flex items-center justify-center shadow">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-4 w-4">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -67,6 +73,12 @@ function Dashboard() {
             <section>
                 <MainSlider /> {/* Include the MainSlider component */}
             </section>
+            <h2 className="text-center mt-3">TOUR NƯỚC NGOÀI</h2>
+            <TourCardForm />
+            <h2 className="text-center mt-3">TOUR TRONG NƯỚC</h2>
+            <TourCardForm />
+            <h2 className="text-center mt-3">CẨM NANG</h2>
+            <Footer />
         </main>
     );
 }

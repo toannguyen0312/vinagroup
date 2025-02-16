@@ -23,17 +23,18 @@
 }
 
 .search-input {
-    height: 34px;
-    box-sizing: border-box;
+    height: 35px;
     padding: 10px;
-    width: 300px;    
+    width: 340px;
+    border-width: 0;        
 }
 
 .mobile-menu-icon {
     display: block;
     font-size: 30px;
     cursor: pointer;
-    color: #018fe5; /* Change the color to your desired color */
+    color: #018fe5;
+ /* Change the color to your desired color */
 }
 
 /* Flexbox container for header */
@@ -103,6 +104,30 @@ header {
     width: 65px;
     margin-left: 5px;
 }
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+     /* Center the slider container */
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the slide content */
+}
+
+.slide-image {
+    width:100% /* Ensure the image takes full width of the slide */
+}
+
+h2 {
+    color: darkred;   
+}
+
 /* Styles for larger screens */
 @media all and (min-width: 600px) {
     .nav-items {
@@ -119,3 +144,7 @@ header {
         width: 300px; /* Adjust as needed for larger view */
     }
 }
+
+
+
+

@@ -2,6 +2,7 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import "./mainSlider.css";
 
 import CoverMAU from "./MobileImage/CoverMAU.jpg";
 import CoverMdubai from "./MobileImage/CoverMdubai.jpg";
@@ -22,11 +23,12 @@ const images = [
 
 function MainSlider() {
     const settings = {
-        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "0",
     };
 
 return (
@@ -34,7 +36,7 @@ return (
         <Slider {...settings}>
             {images.map((image, index) => (
                 <div key={index}>
-                    <img src={image} alt={`Slide ${index + 1}`} style={{ width: "100%"}} />
+                    <img src={image} alt={`Slide ${index + 1}`} className="image-style shadow" style={{ width: "100%"}} />
                 </div>
             ))}
         </Slider>
