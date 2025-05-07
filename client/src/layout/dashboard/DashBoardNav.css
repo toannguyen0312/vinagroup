@@ -1,0 +1,32 @@
+/* Hide the dropdown submenu by default */
+.dropdown-submenu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%; /* Position below the parent menu item */
+    left: 0;
+    background-color: white;
+    z-index: 1000;
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+}
+
+/* Show the submenu when the parent <li> is hovered */
+.nav-item:hover > .dropdown-submenu {
+    display: block; /* Show the submenu on hover */
+}
+
+/* Style for submenu items */
+.dropdown-submenu li {
+    padding: 5px 10px;
+}
+
+.dropdown-submenu li a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-submenu li a:hover {
+    color: #018fe5; /* Highlight color on hover */
+}

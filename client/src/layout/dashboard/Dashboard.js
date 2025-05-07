@@ -1,32 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import logovinagroup from "./logovinagroup.jpg";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./DashBoard.css";
 import MainSlider from "./mainSlider"; 
 import TourCardForm from "./TourCardForm";
 import Footer from "./footer";
+import DashBoardNav from "./DashBoardNav";
 
-function Dashboard() {
+
+function Dashboard({}) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const menuRef = useRef(null);
 
     const toggleNav = () => {
-        console.log("Hamburger icon clicked!"); 
-        setMobileMenuOpen(!mobileMenuOpen); 
+        setMobileMenuOpen(prev => !prev);
     };
-
-    const handleClickOutside = (event) => {
-        if (menuRef.current && !menuRef.current.contains(event.target)) {
-            setMobileMenuOpen(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
 
     return (
         <main>
@@ -54,21 +41,10 @@ function Dashboard() {
                         </form>
                     </div>
                 </div>
-                <div className="nav-container">
-                    <nav ref={menuRef}>
-                        {/* Dropdown menu for navigation */}
-                        <ul className={`nav-items ${mobileMenuOpen ? 'dropdown-menu show' : ''}`}>
-                            <li className="nav-item">Home</li>
-                            <li className="nav-item">Giới Thiệu</li>
-                            <li className="nav-item">Du Lịch Nước Ngoài</li>
-                            <li className="nav-item">Du Lịch Trong Nước</li>
-                            <li className="nav-item">Teambuilding & Sự Kiện</li>
-                            <li className="nav-item">Cẩm Nang Du Lịch</li>
-                            <li className="nav-item">Góc Truyền Thông</li>
-                            <li className="nav-item">Liên Hệ</li>
-                        </ul>
-                    </nav>
-                </div>
+                <DashBoardNav 
+                    mobileMenuOpen={mobileMenuOpen}
+                    setMobileMenuOpen={setMobileMenuOpen}
+                />
             </header>
             <section>
                 <MainSlider /> {/* Include the MainSlider component */}

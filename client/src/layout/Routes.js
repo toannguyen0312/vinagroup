@@ -21,6 +21,20 @@ function Routes() {
         <Route path="/dashboard">
             <Dashboard />
         </Route>
+        <Route path="/gioi-thieu">
+        </Route>
+        <Route path="/du-lich-nuoc-ngoai">
+        </Route>
+        <Route path="/du-lich-trong-nuoc">
+        </Route>
+        <Route path="/teambuilding-su-kien">
+        </Route>
+        <Route path="/cam-nang-du-lich">
+        </Route>
+        <Route path="/goc-truyen-thong">
+        </Route>
+        <Route path="/lien-he">
+        </Route>
         <Route>
             <NotFound />
         </Route>

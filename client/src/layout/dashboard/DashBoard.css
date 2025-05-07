@@ -9,17 +9,22 @@
     right: 0;
     z-index: 1000;
     border: 1px solid #ccc;
-    display: none; /* Hide by default */
+    transform: translateY(-10px); /* Start slightly above */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-out, opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .dropdown-menu.show {
-    display: block;
-    padding: 10px;
+    transform: translateY(0); /* Slide down */
+    opacity: 1;
+    visibility: visible;
 }
+
 
 .logo-image {
     width: 70%; /* Adjust as needed for mobile view */
-    margin-top: -20 px;
+    margin-top: -20px;
     padding-top: 0;
 }
 
@@ -63,6 +68,20 @@ header {
     padding: 0;
 }
 
+.nav-items.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .nav-items.dropdown-menu.show {
     display: flex;
     flex-direction: column;
@@ -72,7 +91,9 @@ header {
     background-color: white;
     border: 1px solid;
     z-index: 1000;
-
+    opacity: 1; /* Fade in */
+    visibility: visible; /* Make visible */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Add transition for opacity and visibility */
 }
 
 .logo-container {
@@ -128,6 +149,7 @@ header {
 h2 {
     color: darkred;   
 }
+
 
 /* Styles for larger screens */
 @media all and (min-width: 600px) {
