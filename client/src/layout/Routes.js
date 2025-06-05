@@ -2,6 +2,7 @@ import React from "react";
 
 import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
+import GioiThieu from "./gioi-thieu/GioiThieu";
 import NotFound from "./NotFound";
 
 
@@ -19,9 +20,10 @@ function Routes() {
           <Redirect to={"/dashboard"} />
         </ Route>
         <Route path="/dashboard">
-            <Dashboard />
+          <Dashboard />
         </Route>
         <Route path="/gioi-thieu">
+          <GioiThieu />
         </Route>
         <Route path="/du-lich-nuoc-ngoai">
         </Route>
