@@ -49,8 +49,10 @@ function Dashboard({}) {
             <section>
                 <MainSlider /> {/* Include the MainSlider component */}
             </section>
-            <h2 className="text-center mt-3">TOUR NƯỚC NGOÀI</h2>
-            <TourCardForm />
+            <div className="tour-ngoai-section">
+                <h2 className="text-center mt-3">TOUR NƯỚC NGOÀI</h2>
+                <TourCardForm />
+            </div>
             <h2 className="text-center mt-3">TOUR TRONG NƯỚC</h2>
             <TourCardForm />
             <h2 className="text-center mt-3">CẨM NANG</h2>

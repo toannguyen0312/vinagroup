@@ -1,19 +1,18 @@
 /* Hide the dropdown submenu by default */
-.dropdown-submenu {
-    display: none; /* Hide by default */
-    position: absolute;
-    top: 100%; /* Position below the parent menu item */
-    left: 0;
-    background-color: white;
-    z-index: 1000;
+.submenu-list {
+    display: none;
     list-style-type: none;
-    padding: 10px;
     margin: 0;
-    border: 1px solid #ccc;
+    padding-left: 20px; /* indent for clarity */
+    background: #fff;
+    border-left: 2px solid #018fe5;
+    position: static;
+    box-shadow: none;
+    width: auto;
 }
 
 /* Show the submenu when the parent <li> is hovered */
-.nav-item:hover > .dropdown-submenu {
+.nav-item:hover > .submenu-list {
     display: block; /* Show the submenu on hover */
 }
 
@@ -29,4 +28,12 @@
 
 .dropdown-submenu li a:hover {
     color: #018fe5; /* Highlight color on hover */
+}
+
+.submenu-list.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
 }
