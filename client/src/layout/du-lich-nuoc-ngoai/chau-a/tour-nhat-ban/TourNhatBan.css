@@ -1,0 +1,41 @@
+.timeline {
+  border-left: 1px solid #018fe5;
+  position: relative;
+  list-style: none;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.timeline .timeline-item {
+  position: relative;
+}
+
+.timeline .timeline-item:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline .timeline-item:after {
+  background-color: #018fe5;
+  left: -38px;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+}
+
+.main-photo {
+  width: 100%;
+  margin-top: -13px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title-text {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  color: darkred;
+  margin-bottom: -35px;
+}

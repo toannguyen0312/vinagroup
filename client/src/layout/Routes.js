@@ -3,6 +3,8 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import GioiThieu from "./gioi-thieu/GioiThieu";
+import TourNhatBan from "./du-lich-nuoc-ngoai/chau-a/tour-nhat-ban/TourNhatBan";
+import CamNang from "./cam-nang/CamNang";
 import NotFound from "./NotFound";
 
 
@@ -18,12 +20,15 @@ function Routes() {
       <Switch>
         <Route exact={true} path="/">
           <Redirect to={"/dashboard"} />
-        </ Route>
+        </Route>
         <Route path="/dashboard">
           <Dashboard />
         </Route>
         <Route path="/gioi-thieu">
           <GioiThieu />
+        </Route>
+        <Route path="/du-lich-nuoc-ngoai/tour-nhat-ban">
+          <TourNhatBan />
         </Route>
         <Route path="/du-lich-nuoc-ngoai">
         </Route>
@@ -32,6 +37,7 @@ function Routes() {
         <Route path="/teambuilding-su-kien">
         </Route>
         <Route path="/cam-nang-du-lich">
+        <CamNang />
         </Route>
         <Route path="/goc-truyen-thong">
         </Route>

@@ -1,5 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
+import "./GioiThieu.css";
+import logovinagroup from "../dashboard/logovinagroup.jpg";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Footer from "../../utils/Footer/Footer";
+import { Link } from "react-router-dom";
 
+import GioiThieu00 from "./GioiThieuImage/GioiThieu00.jpg";
 import GioiThieu01 from "./GioiThieuImage/GioiThieu01.jpg";
 import GioiThieu02 from "./GioiThieuImage/GioiThieu02.jpg";
 import GioiThieu03 from "./GioiThieuImage/GioiThieu03.jpg";
@@ -27,7 +33,7 @@ import GioiThieu24 from "./GioiThieuImage/GioiThieu24.jpg";
 import GioiThieu25 from "./GioiThieuImage/GioiThieu25.jpg";
 
 const images = [
-  GioiThieu01, GioiThieu02, GioiThieu03, GioiThieu04, GioiThieu05,
+  GioiThieu00, GioiThieu01, GioiThieu02, GioiThieu03, GioiThieu04, GioiThieu05,
   GioiThieu06, GioiThieu07, GioiThieu08, GioiThieu09, GioiThieu10,
   GioiThieu11, GioiThieu12, GioiThieu13, GioiThieu14, GioiThieu15,
   GioiThieu16, GioiThieu17, GioiThieu18, GioiThieu19, GioiThieu20,
@@ -35,12 +41,29 @@ const images = [
 ];
 
 function GioiThieu() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    
+    const toggleNav = () => {
+        setMobileMenuOpen(prev => !prev);
+    };
+
+
     return (
-    <div className="gioi-thieu-gallery">
-      {images.map((img, idx) => (
-        <img key={idx} src={img} alt={`GioiThieu${idx + 1}`} style={{maxWidth: "100%", margin: "10px"}} />
-      ))}
-    </div>
+      <>
+        <div className="top-container">
+          <p>028 3526 4168 | 0934 043 188</p>
+        </div>
+        <div className="logo-container">
+            <Link to ="/"><img src={logovinagroup} alt="Logo" className="logo-image"/></Link>
+            <i className="bi bi-list mobile-menu-icon" onClick={toggleNav}></i>
+        </div>
+        <div className="gioi-thieu-gallery">
+          {images.map((img, idx) => (
+            <img key={idx} src={img} alt={`GioiThieu${idx + 1}`} style={{maxWidth: "100%", margin: "10px"}} />
+          ))}
+        </div>
+        <Footer />
+      </>
   );
 }
 
