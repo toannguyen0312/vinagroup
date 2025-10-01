@@ -6,6 +6,8 @@ import TourCardForm from "./TourCardForm";
 import Footer from "../../utils/Footer/Footer";
 import NewDashBoardNav from "./NewDashBoardNav";
 import CamNangForm from "./CamNangForm";
+import logovinagroup from "./logovinagroup.jpg";
+import { Link } from "react-router-dom";
 
 function Dashboard({}) {
     return (
@@ -14,7 +16,12 @@ function Dashboard({}) {
                 <p>028 3526 4168 | 0934 043 188</p>
             </div>
             <header>
-                <NewDashBoardNav />
+                <div className="logonav">
+                    <Link to="/" className="navbar-brand">
+                        <img src={logovinagroup} alt="VinaGroup Logo" className="logo-image"/>
+                    </Link>                
+                    <NewDashBoardNav />
+                </div>
                 <div className="header-container">
                     <div className="search-container">
                         <form>
@@ -37,14 +44,14 @@ function Dashboard({}) {
             </header>            
                 <div>
                     <div className="tour-button-box">
-                        <button type="button" className="hot-button shadow">Tour Hè</button>
-                        <button type="button" className="hot-button shadow">Tour Hot</button>
+                        <button type="button" className="hot-button shadow tour-he">Tour Mùa Thu</button>
+                        <button type="button" className="hot-button shadow tour-hot">Tour Hot</button>
                     </div>
                     <div className="tour-button-box">
-                        <button type="button" className="hot-button shadow">Tour Trong Nước</button>
-                        <button type="button" className="hot-button shadow">Tour Nước Ngoài</button>
+                        <button type="button" className="hot-button shadow tour-trong-nuoc">Tour Trong Nước</button>
+                        <button type="button" className="hot-button shadow tour-nuoc-ngoai">Tour Nước Ngoài</button>
                     </div>
-                </div>        
+                </div>      
             <section>
                 <MainSlider /> {/* Include the MainSlider component */}
             </section>

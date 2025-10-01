@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NewDashBoardNav.css";
-import logovinagroup from "./logovinagroup.jpg"
 
 function NewDashBoardNav() {
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
@@ -36,9 +35,6 @@ function NewDashBoardNav() {
             <nav className="navbar bg-body-tertiary fixed-top">
                 <div className="container-fluid">
                     <div className="logo-nav">
-                        <Link to="/" className="navbar-brand">
-                            <img src={logovinagroup} alt="VinaGroup Logo" className="logo-image"/>
-                        </Link>
                         <button 
                             className="navbar-toggler" 
                             type="button" 

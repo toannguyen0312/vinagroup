@@ -59,6 +59,7 @@
     justify-content: space-around;
     margin-top: -40px;
     background: white;
+    padding-right: 10px;
 }
 
 .navbar-toggler {
@@ -91,9 +92,8 @@
 
 .navbar {
     position: relative;
-    padding-top: 34px !important; /* Reduce top padding */
     padding-bottom: 0px !important; /* Reduce bottom padding */
-    min-height: 50px !important; /* Set a smaller minimum height */
+    min-height: 40px !important; /* Set a smaller minimum height */
 }
 .navbar .container-fluid {
     margin-bottom: -20px;

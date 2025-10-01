@@ -4,8 +4,11 @@ import "./TourNhatBan.css";
 import NhatBanMain from "./TourNhatBanPhoto/NhatBanMain.jpg"
 import TourNhatBanDetail from "./TourNhatBanDetail";
 import TourInfo from "./TourNhatBanPhoto/TourInfo";
-
+import Footer from "../../../../utils/Footer/Footer";
 import logovinagroup from "../../../dashboard/logovinagroup.jpg";
+import NewDashBoardNav from "../../../dashboard/NewDashBoardNav";
+import TourSpec from "../../../../utils/TourUtils/TourSpec";
+import TourSchedule from "../../../../utils/TourUtils/TourSchedule";
 
 function TourNhatBan() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,16 +22,21 @@ function TourNhatBan() {
         <div className="top-container">
             <p>028 3526 4168 | 0934 043 188</p>
         </div>
-        <div className="logo-container">
-            <Link to ="/"><img src={logovinagroup} alt="Logo" className="logo-image"/></Link>
-            <i className="bi bi-list mobile-menu-icon" onClick={toggleNav}></i>
+        <div className="logonav">
+            <Link to="/" className="navbar-brand">
+                <img src={logovinagroup} alt="VinaGroup Logo" className="logo-image"/>
+            </Link>                
+            <NewDashBoardNav />
         </div>
         <div>
             <img src={NhatBanMain} alt="mainPhoto" className="main-photo"/>
             <p className="title-text">Tour Nhật Bản - Cung Đường Vàng</p>
         </div>
+        <TourSpec />
+        <TourSchedule />
         <TourNhatBanDetail />
         <TourInfo />
+        <Footer />
     </div>
     );
 }

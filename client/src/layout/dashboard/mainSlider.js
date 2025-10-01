@@ -4,21 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./mainSlider.css";
 
-import CoverMAU from "./MobileImage/CoverMAU.jpg";
-import CoverMdubai from "./MobileImage/CoverMdubai.jpg";
-import CoverMEU from "./MobileImage/CoverMEU.jpg"; 
-import CoverMhk from "./MobileImage/CoverMhk.jpg";
-import CoverMjpn from "./MobileImage/CoverMjpn.jpg";
-import CoverMkor from "./MobileImage/CoverMkor.jpg";
-import CoverMlao from "./MobileImage/CoverMlao.jpg";
-import CoverMLG from "./MobileImage/CoverMLG.jpg";
-import CoverMsingmalay from "./MobileImage/CoverMsingmalay.jpg";
-import CoverMthai from "./MobileImage/CoverMthai.jpg";
-import CoverMtw from "./MobileImage/CoverMtw.jpg";
-import CoverMUS from "./MobileImage/CoverMUS.jpg";
+import Banner1 from "./MobileImage/Banner1.jpg";
+import Banner2 from "./MobileImage/Banner2.jpg";
+import Banner3 from "./MobileImage/Banner3.jpg";
+import Banner4 from "./MobileImage/Banner4.jpg";
 
 const images = [
-    CoverMAU, CoverMEU, CoverMLG, CoverMUS, CoverMdubai, CoverMhk, CoverMjpn, CoverMkor, CoverMlao, CoverMsingmalay, CoverMthai, CoverMtw
+    Banner1, Banner2, Banner3, Banner4,
 ]
 
 function MainSlider() {

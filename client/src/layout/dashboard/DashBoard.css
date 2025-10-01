@@ -10,7 +10,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    padding: 5px 0px;
     padding-top: 0px;
     margin-bottom: -10px;
 }
@@ -150,6 +150,61 @@ h2 {
 .search-container,
 .tour-button-box {
     margin-left: 0px;
+}
+
+.logonav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.bg-body-tertiary {
+    background-color: white !important;
+    --bs-bg-opacity: 1 !important;
+}
+
+.top-container p {
+    padding-left: 10px;
+}
+
+.hot-button.tour-he {
+    background: #D2691E; /* Saddle Brown */
+    border-color: #D2691E;
+}
+
+.hot-button.tour-he:hover {
+    background: #A0522D; /* Sienna */
+    border-color: #A0522D;
+}
+
+.hot-button.tour-hot {
+    background: #FF8C00; /* Dark Orange */
+    border-color: #FF8C00;
+}
+
+.hot-button.tour-hot:hover {
+    background: #FF7F00; /* Bright Orange */
+    border-color: #FF7F00;
+}
+
+.hot-button.tour-trong-nuoc {
+    background: #B8860B; /* Dark Goldenrod */
+    border-color: #B8860B;
+}
+
+.hot-button.tour-trong-nuoc:hover {
+    background: #DAA520; /* Goldenrod */
+    border-color: #DAA520;
+}
+
+.hot-button.tour-nuoc-ngoai {
+    background: #CD853F; /* Peru */
+    border-color: #CD853F;
+}
+
+.hot-button.tour-nuoc-ngoai:hover {
+    background: #DEB887; /* Burlywood */
+    border-color: #DEB887;
 }
 
 /* Styles for larger screens */
