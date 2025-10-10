@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import "./TourNhatBan.css";
 import NhatBanMain from "./TourNhatBanPhoto/NhatBanMain.jpg"
 import TourNhatBanDetail from "./TourNhatBanDetail";
-import TourInfo from "./TourNhatBanPhoto/TourInfo";
 import Footer from "../../../../utils/Footer/Footer";
 import logovinagroup from "../../../dashboard/logovinagroup.jpg";
 import NewDashBoardNav from "../../../dashboard/NewDashBoardNav";
 import TourSpec from "../../../../utils/TourUtils/TourSpec";
 import TourSchedule from "../../../../utils/TourUtils/TourSchedule";
+import TourInfo1 from "./TourInfo1";
+import TextEditor from "./TextEditor";
 
 function TourNhatBan() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,7 +36,8 @@ function TourNhatBan() {
         <TourSpec />
         <TourSchedule />
         <TourNhatBanDetail />
-        <TourInfo />
+        <TextEditor />
+        <TourInfo1 />
         <Footer />
     </div>
     );

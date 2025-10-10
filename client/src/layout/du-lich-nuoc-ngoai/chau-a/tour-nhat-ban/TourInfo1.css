@@ -1,0 +1,36 @@
+/* Comprehensive button focus removal */
+button.btn,
+button.btn:focus,
+button.btn:active,
+button.btn:focus-visible,
+button.btn:focus-within,
+button.btn.collapsed:focus,
+button.btn[data-bs-toggle="collapse"]:focus,
+button.btn[data-bs-toggle="collapse"]:active,
+.custom-btn,
+.custom-btn:focus,
+.custom-btn:active,
+.custom-btn:focus-visible,
+.custom-btn:hover {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid transparent !important;
+}
+
+/* Remove focus on all states */
+button.btn:focus:not(:focus-visible),
+button.btn:visited,
+button.btn:target {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove card border */
+.card {
+  border: none !important;
+}
+
+.card-body {
+  border: none !important;
+}
+
