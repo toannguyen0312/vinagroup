@@ -4,7 +4,31 @@ import DOMPurify from "dompurify";
 import "react-quill/dist/quill.snow.css";
 
 export default function TextEditor() {
-  const [content, setContent] = useState("");
+const [content, setContent] = useState("");
+
+const modules = {
+    toolbar: [
+        [{ header: [1, 2, 3, false] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ color: [] }, { background: [] }], // color pickers
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["link", "image"],
+        ["clean"],
+    ],
+};
+const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "color",
+    "background",
+    "list",
+    "bullet",
+    "link",
+    "image",
+];
 
   return (
     <>
@@ -12,6 +36,8 @@ export default function TextEditor() {
         theme="snow"
         value={content}
         onChange={setContent}
+        modules={modules}
+        formats={formats}
         placeholder="Start writing"
       />
 
