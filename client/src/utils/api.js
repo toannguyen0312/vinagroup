@@ -49,3 +49,17 @@ async function fetchJson(url, options, onCancel) {
     return Promise.resolve(onCancel);
   }
 }
+
+export async function createTourSchedule(tourSchedule, signal) {
+  const url = `${API_BASE_URL}/tourschedule`;
+
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: tourSchedule}),
+    signal,
+  }
+
+  let data = await fetchJson(url, options);
+  return data;
+}
