@@ -1,6 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 
+const errorHandler = require("./errors/errorHandler");
+const notFound = require("./errors/notFound");
+
+// TODO: Add your route imports here as you create them
+// const tourScheduleRouter = require("./tourschedule/tourschedule.router");
+// const toursRouter = require("./tours/tours.router");
+
 const app = express();
 
 // Middleware
@@ -27,21 +34,12 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// TODO: Add your API routes here
-// Example:
-// const tourScheduleRouter = require("./tourschedule/tourschedule.router");
+// API Routes - add your tour-related routes here
 // app.use("/api/tourschedule", tourScheduleRouter);
+// app.use("/api/tours", toursRouter);
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ error: `Route ${req.originalUrl} not found` });
-});
-
-// Error handler
-app.use((error, req, res, next) => {
-  console.error(error);
-  const { status = 500, message = "Something went wrong!" } = error;
-  res.status(status).json({ error: message });
-});
+// Error handlers (must be last)
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;

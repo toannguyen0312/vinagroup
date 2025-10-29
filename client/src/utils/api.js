@@ -51,7 +51,7 @@ async function fetchJson(url, options, onCancel) {
 }
 
 export async function createTourSchedule(tourSchedule, signal) {
-  const url = `${API_BASE_URL}/tourschedule`;
+  const url = `${API_BASE_URL}/api/tourschedule`;
 
   const options = {
     method: "POST",
@@ -62,4 +62,9 @@ export async function createTourSchedule(tourSchedule, signal) {
 
   let data = await fetchJson(url, options);
   return data;
+}
+
+export async function listTourSchedule(signal) {
+  const url = `${API_BASE_URL}/api/tourschedule`;
+  return await fetchJson(url, { headers, signal }, []);
 }

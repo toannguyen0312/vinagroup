@@ -1,8 +1,18 @@
 import React from "react";
-import UpdateTourScheduleForm from "./UpdateTourScheduleForm";
+import CreateTourScheduleForm from "./CreateTourScheduleForm";
 
-function TourSchedule() {
-  return (
+function TourSchedule({ tourSchedule }) {
+  const displayTourSchedule =  tourSchedule.map((tourSchedule, index) => {
+    return (
+      <tr key={index}>
+        <td></td>
+      </tr>
+    )
+  })
+  return 
+
+
+  /*return (
     <>
       <div className="card">
         <div className="card-body p-0">
@@ -50,9 +60,9 @@ function TourSchedule() {
           </table>
         </div>
       </div>
-      <UpdateTourScheduleForm />
+      <CreateTourScheduleForm />
     </>
-  );
+  ); */
 }
 
 export default TourSchedule;

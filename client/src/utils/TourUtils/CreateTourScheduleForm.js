@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createTourSchedule } from "../api";
 
-function UpdateTourScheduleForm() {
+function CreateTourScheduleForm() {
     const initialFormState = {
         lichTrinh: "",
         ngayXuatPhat: "",
@@ -77,4 +77,4 @@ function UpdateTourScheduleForm() {
     )
 }
 
-export default UpdateTourScheduleForm;
+export default CreateTourScheduleForm;
