@@ -5,11 +5,33 @@ function TourSchedule({ tourSchedule }) {
   const displayTourSchedule =  tourSchedule.map((tourSchedule, index) => {
     return (
       <tr key={index}>
-        <td></td>
+        <td>{tourSchedule.tour_name}</td>
+        <td>{tourSchedule.start_date}</td>
+        <td>{tourSchedule.end_date}</td>
+        <td>{tourSchedule.price}</td>
       </tr>
     )
-  })
-  return 
+  });
+  return (
+    <>
+      <div classNamr="card">
+          <div className="card-body p-0">
+            <table className="table table-bordered mb-0 align-middle text-center">
+              <thead className="table-light">
+              <tr>
+                <th scope="col">Lịch trình</th>
+                <th scope="col">Ngày xuất phát</th>
+                <th scope="col">Ngày kết thúc</th>
+                <th scope="col">Giá tiền</th>
+              </tr>
+            </thead>
+            <tbody>{displayTourSchedule}</tbody>
+            </table>
+          </div>
+      </div>
+      <CreateTourScheduleForm />
+    </>
+  )
 
 
   /*return (
