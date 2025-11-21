@@ -4,9 +4,9 @@ const cors = require("cors");
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 
-// TODO: Add your route imports here as you create them
-// const tourScheduleRouter = require("./tourschedule/tourschedule.router");
-// const toursRouter = require("./tours/tours.router");
+// Route imports
+const tourScheduleRouter = require("./tours/tourSchedule.router");
+const toursRouter = require("./tours/tours.router");
 
 const app = express();
 
@@ -34,9 +34,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// API Routes - add your tour-related routes here
-// app.use("/api/tourschedule", tourScheduleRouter);
-// app.use("/api/tours", toursRouter);
+// API Routes
+app.use("/api/tourschedule", tourScheduleRouter);
+app.use("/api/tours", toursRouter);
 
 // Error handlers (must be last)
 app.use(notFound);
