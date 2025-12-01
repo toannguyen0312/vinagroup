@@ -15,7 +15,8 @@ import { listTourSchedule } from "../../../../utils/api";
 function TourNhatBan() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [tourSchedule, setTourSchedule] = useState([]);
-    const [tourScheduleError, setTourScheduleError] = useState(null)
+    const [tourScheduleError, setTourScheduleError] = useState(null);
+    const [loading, setLoading] = useState(true);
     
 
     const toggleNav = () => {
@@ -25,9 +26,17 @@ function TourNhatBan() {
     function loadTourSchedules() {
         const abortController = new AbortController();
         setTourScheduleError(null);
+        setLoading(true);
+        
         listTourSchedule(abortController.signal)
-            .then(setTourSchedule)
-            .catch(setTourScheduleError);
+            .then((data) => {
+                setTourSchedule(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                setTourScheduleError(error);
+                setLoading(false);
+            });
 
         return () => abortController.abort();
     }
@@ -54,7 +63,13 @@ function TourNhatBan() {
             <p className="title-text">Tour Nhật Bản - Cung Đường Vàng</p>
         </div>
         <TourSpec />
-        <TourSchedule tourSchedule={tourSchedule} />
+        {loading ? (
+            <div className="text-center p-4">Đang tải lịch trình...</div>
+        ) : tourScheduleError ? (
+            <div className="alert alert-danger">Lỗi tải dữ liệu: {tourScheduleError.message}</div>
+        ) : (
+            <TourSchedule tourSchedule={tourSchedule} tourId={1} />
+        )}
         <TourNhatBanDetail />
         <TextEditor />
         <TourInfo1 />

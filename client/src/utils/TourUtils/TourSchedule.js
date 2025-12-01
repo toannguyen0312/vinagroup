@@ -1,20 +1,39 @@
 import React from "react";
 import CreateTourScheduleForm from "./CreateTourScheduleForm";
 
-function TourSchedule({ tourSchedule }) {
-  const displayTourSchedule =  tourSchedule.map((tourSchedule, index) => {
+function TourSchedule({ tourSchedule, tourId = 1 }) {
+  // Filter schedules for the specific tour (default to tour_id 1 for Nhật Bản)
+  const filteredSchedules = tourSchedule.filter(schedule => schedule.tour_id === tourId);
+  
+  // Format date function
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('vi-VN', {
+      day: '2-digit',
+      month: '2-digit', 
+      year: 'numeric'
+    });
+  };
+
+  // Format price function
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN').format(price);
+  };
+
+  const displayTourSchedule = filteredSchedules.map((schedule, index) => {
     return (
-      <tr key={index}>
-        <td>{tourSchedule.tour_name}</td>
-        <td>{tourSchedule.start_date}</td>
-        <td>{tourSchedule.end_date}</td>
-        <td>{tourSchedule.price}</td>
+      <tr key={schedule.tourSchedule_id || index}>
+        <td>{schedule.lich_trinh}</td>
+        <td>{formatDate(schedule.start_date)}</td>
+        <td>{formatDate(schedule.end_date)}</td>
+        <td>{formatPrice(schedule.price)} VND</td>
       </tr>
-    )
+    );
   });
+
   return (
     <>
-      <div classNamr="card">
+      <div className="card">
           <div className="card-body p-0">
             <table className="table table-bordered mb-0 align-middle text-center">
               <thead className="table-light">
@@ -25,13 +44,19 @@ function TourSchedule({ tourSchedule }) {
                 <th scope="col">Giá tiền</th>
               </tr>
             </thead>
-            <tbody>{displayTourSchedule}</tbody>
+            <tbody>
+              {filteredSchedules.length > 0 ? displayTourSchedule : (
+                <tr>
+                  <td colSpan="4">Chưa có lịch trình nào</td>
+                </tr>
+              )}
+            </tbody>
             </table>
           </div>
       </div>
       <CreateTourScheduleForm />
     </>
-  )
+  );
 
 
   /*return (

@@ -2,10 +2,10 @@ exports.up = function(knex) {
   return knex.schema.createTable("tourSchedule", (table) => {
     table.increments("tourSchedule_id").primary();
     table.integer("tour_id").unsigned().notNullable();
+    table.text("lich_trinh").notNullable();
     table.date("start_date").notNullable();
     table.date("end_date").notNullable();
     table.decimal("price", 10, 2).notNullable();
-    table.integer("available_slots").defaultTo(0);
     table.timestamps(true, true);
     
     // Foreign key constraint
@@ -14,5 +14,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable("tourSchedule");
+  return knex.schema.dropTableIfExists("tourSchedule");
 };

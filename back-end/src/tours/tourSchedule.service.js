@@ -21,10 +21,11 @@ function create(newTourSchedule) {
   // Map Vietnamese field names to English database column names
   const mappedData = {
     tour_id: parseInt(newTourSchedule.tour_id), // Use the selected tour_id
+    lich_trinh: newTourSchedule.lichTrinh, // Map lich trinh field
     start_date: newTourSchedule.ngayXuatPhat,
     end_date: newTourSchedule.ngayKetThuc,
-    price: parseFloat(newTourSchedule.giaTien),
-    available_slots: newTourSchedule.available_slots || 20 // Default slots
+    price: parseFloat(newTourSchedule.giaTien)
+    // Removed available_slots as it's not in the new schema
   };
   
   return knex("tourSchedule")
@@ -40,10 +41,11 @@ function update(updatedTourSchedule) {
   // Map Vietnamese field names to English database column names
   const mappedData = {
     tour_id: updatedTourSchedule.tour_id,
+    lich_trinh: updatedTourSchedule.lichTrinh, // Map lich trinh field
     start_date: updatedTourSchedule.ngayXuatPhat,
     end_date: updatedTourSchedule.ngayKetThuc,
-    price: parseFloat(updatedTourSchedule.giaTien),
-    available_slots: updatedTourSchedule.available_slots
+    price: parseFloat(updatedTourSchedule.giaTien)
+    // Removed available_slots as it's not in the new schema
   };
   
   return knex("tourSchedule")

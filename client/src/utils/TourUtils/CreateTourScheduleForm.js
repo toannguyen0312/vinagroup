@@ -17,12 +17,10 @@ function CreateTourScheduleForm() {
     useEffect(() => {
         async function loadTours() {
             try {
-                console.log("🔄 Loading tours...");
                 const toursData = await listTours();
-                console.log("✅ Tours data received:", toursData);
                 setTours(toursData);
             } catch (error) {
-                console.error("❌ Error loading tours:", error);
+                console.error("Error loading tours:", error);
             }
         }
         loadTours();
@@ -48,15 +46,7 @@ function CreateTourScheduleForm() {
     };
 
     return (
-        <div>
-            {/* Debug info */}
-            <div style={{ background: '#f0f0f0', padding: '10px', marginBottom: '20px' }}>
-                <strong>Debug Info:</strong><br/>
-                Tours loaded: {tours.length}<br/>
-                Tours data: {JSON.stringify(tours, null, 2)}
-            </div>
-            
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="tour_id">
                 Chọn Tour
                 <select
@@ -125,7 +115,6 @@ function CreateTourScheduleForm() {
             <br />
             <button type="submit">Lưu</button>
         </form>
-        </div>
     )
 }
 
