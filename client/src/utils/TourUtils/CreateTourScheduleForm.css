@@ -1,0 +1,17 @@
+.tour-schedule-form {    
+    border: 2px solid #e2e8f0; 
+    border-radius: 16px;
+    margin: 6px;
+}
+
+.tour-schedule-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.tour-schedule-container label {
+    display: block;
+    font-weight: bold;
+    margin-right: 8px; /* ✅ This adds space after "Lịch Trình" */
+}

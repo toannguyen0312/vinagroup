@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { createTourSchedule, listTours } from "../api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./CreateTourScheduleForm.css";
 
 function CreateTourScheduleForm() {
     const initialFormState = {
@@ -69,90 +70,124 @@ function CreateTourScheduleForm() {
     };
 
     return (
-        <div> {/* ✅ Added wrapper div */}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="tour_id">
-                    Chọn Tour
-                    <select
-                        id="tour_id"
-                        name="tour_id"
-                        onChange={handleChange}
-                        value={formData.tour_id}
-                        required
-                    >
-                        <option value="">-- Chọn một tour --</option>
-                        {tours.map((tour) => (
-                            <option key={tour.tour_id} value={tour.tour_id}>
-                                {tour.tour_name}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <br />
+        <div className="container mt-4">
+            <div className="row justify-content-center">
+                <div className="col-lg-8 col-md-10">
+                    <div className="card shadow">
+                        <div className="card-body">
+                            <form onSubmit={handleSubmit}>
+                                <div className="row mb-3">
+                                    <div className="col-12">
+                                        <label htmlFor="tour_id" className="form-label">
+                                            Chọn Tour <span className="text-danger">*</span>
+                                        </label>
+                                        <select
+                                            id="tour_id"
+                                            name="tour_id"
+                                            className="form-select"
+                                            onChange={handleChange}
+                                            value={formData.tour_id}
+                                            required
+                                        >
+                                            <option value="">-- Chọn một tour --</option>
+                                            {tours.map((tour) => (
+                                                <option key={tour.tour_id} value={tour.tour_id}>
+                                                    {tour.tour_name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
 
-                <label htmlFor="lichTrinh">
-                    Lịch Trình
-                    <input
-                        id="lichTrinh"
-                        type="text"
-                        name="lichTrinh"
-                        onChange={handleChange}
-                        value={formData.lichTrinh}
-                        required
-                    />
-                </label>
-                <br />
+                                <div className="row mb-3">
+                                    <div className="col-12">
+                                        <label htmlFor="lichTrinh" className="form-label">
+                                            Lịch Trình <span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            id="lichTrinh"
+                                            type="text"
+                                            name="lichTrinh"
+                                            className="form-control"
+                                            onChange={handleChange}
+                                            value={formData.lichTrinh}
+                                            placeholder="Nhập lịch trình tour"
+                                            required
+                                        />
+                                    </div>
+                                </div>
 
-                <label htmlFor="ngayXuatPhat">
-                    Ngày Xuất Phát
-                    <DatePicker
-                        id="ngayXuatPhat"
-                        selected={formData.ngayXuatPhat}
-                        onChange={(date) => handleDateChange(date, 'ngayXuatPhat')}
-                        dateFormat="dd/MM/yyyy"
-                        placeholderText="DD/MM/YYYY"
-                        minDate={new Date()}
-                        showYearDropdown
-                        showMonthDropdown
-                        dropdownMode="select"
-                        className="form-control" // ✅ Use className instead of style
-                    />
-                </label>
-                <br />
+                                <div className="row mb-3">
+                                    <div className="col-md-6 mb-3 mb-md-0">
+                                        <label htmlFor="ngayXuatPhat" className="form-label">
+                                            Ngày Xuất Phát <span className="text-danger">*</span>
+                                        </label>
+                                        <DatePicker
+                                            id="ngayXuatPhat"
+                                            selected={formData.ngayXuatPhat}
+                                            onChange={(date) => handleDateChange(date, 'ngayXuatPhat')}
+                                            dateFormat="dd/MM/yyyy"
+                                            placeholderText="DD/MM/YYYY"
+                                            minDate={new Date()}
+                                            showYearDropdown
+                                            showMonthDropdown
+                                            dropdownMode="select"
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label htmlFor="ngayKetThuc" className="form-label">
+                                            Ngày Kết Thúc <span className="text-danger">*</span>
+                                        </label>
+                                        <DatePicker
+                                            id="ngayKetThuc"
+                                            selected={formData.ngayKetThuc}
+                                            onChange={(date) => handleDateChange(date, 'ngayKetThuc')}
+                                            dateFormat="dd/MM/yyyy"
+                                            placeholderText="DD/MM/YYYY"
+                                            minDate={formData.ngayXuatPhat || new Date()}
+                                            showYearDropdown
+                                            showMonthDropdown
+                                            dropdownMode="select"
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                </div>
 
-                <label htmlFor="ngayKetThuc">
-                    Ngày Kết Thúc
-                    <DatePicker
-                        id="ngayKetThuc"
-                        selected={formData.ngayKetThuc}
-                        onChange={(date) => handleDateChange(date, 'ngayKetThuc')}
-                        dateFormat="dd/MM/yyyy"
-                        placeholderText="DD/MM/YYYY"
-                        minDate={formData.ngayXuatPhat || new Date()}
-                        showYearDropdown
-                        showMonthDropdown
-                        dropdownMode="select"
-                        className="form-control" // ✅ Use className instead of style
-                    />
-                </label>
-                <br />
+                                <div className="row mb-3">
+                                    <div className="col-md-6">
+                                        <label htmlFor="giaTien" className="form-label">
+                                            Giá Tiền (VNĐ) <span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            id="giaTien"
+                                            type="number"
+                                            name="giaTien"
+                                            className="form-control"
+                                            onChange={handleChange}
+                                            value={formData.giaTien}
+                                            min="0"
+                                            step="1000"
+                                            placeholder="Nhập giá tiền"
+                                            required
+                                        />
+                                    </div>
+                                </div>
 
-                <label htmlFor="giaTien">
-                    Giá Tiền
-                    <input
-                        id="giaTien"
-                        type="number" // ✅ Changed to number type
-                        name="giaTien"
-                        onChange={handleChange}
-                        value={formData.giaTien}
-                        min="0"
-                        step="1000"
-                        required
-                    />
-                </label>
-                <br />
-                <button type="submit">Lưu</button>
-            </form>
+                                <div className="row">
+                                    <div className="col-12">
+                                        <button type="submit" className="btn btn-primary w-100">
+                                            <i className="bi bi-save me-2"></i>Lưu Lịch Trình
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
