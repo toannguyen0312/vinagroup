@@ -11,6 +11,8 @@ import TourSchedule from "../../../../utils/TourUtils/TourSchedule";
 import TourInfo1 from "./TourInfo1";
 import TextEditor from "./TextEditor";
 import { listTourSchedule } from "../../../../utils/api";
+import TourReservationForm from "../../../../utils/TourUtils/TourReservationForm";
+import CreateTourScheduleForm from "../../../../utils/TourUtils/CreateTourScheduleForm";
 
 function TourNhatBan() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -80,6 +82,8 @@ function TourNhatBan() {
         <TourSchedule tourSchedule={tourSchedule} tourId={1} />
       )}
 
+      <CreateTourScheduleForm />
+      <TourReservationForm tourSchedule={tourSchedule}/>
       <TourNhatBanDetail />
       <TextEditor />
       <TourInfo1 />

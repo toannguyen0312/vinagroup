@@ -54,7 +54,6 @@ function TourSchedule({ tourSchedule, tourId = 1 }) {
             </table>
           </div>
       </div>
-      <CreateTourScheduleForm />
     </>
   );
 
