@@ -9,7 +9,7 @@ router
   .all(methodNotAllowed);
 
 router
-  .route("/:tourId")
+  .route("/:region/:tourName")
   .get(controller.read)
   .put(controller.update)
   .delete(controller.destroy)
