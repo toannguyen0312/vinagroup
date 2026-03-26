@@ -74,5 +74,11 @@ export async function listTours(signal) {
   return await fetchJson(url, { headers, signal }, []);
 }
 
-export async function 
+export async function listToursByParams (region, tourName, signal) {
+  const encodeRegion = encodeURIComponent(region || "");
+  const encodeTourName = encodeURIComponent(tourName || "");
+  const url = new URL (`${API_BASE_URL}/du-lich-nuoc-ngoai/${encodeRegion}/${encodeTourName}`);
+
+  return await fetchJson(url, { headers, signal }, null);
+}
 

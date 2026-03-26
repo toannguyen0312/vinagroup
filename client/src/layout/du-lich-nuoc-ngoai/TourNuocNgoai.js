@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import { listToursByParams } from "../../utils/api";
+
 function TourNuocNgoai({ region: propRegion, tourName: propTourName }) {
 const { region: urlRegion, tourName: urlTourName } = useParams();
 const region = propRegion || urlRegion;
@@ -15,3 +17,5 @@ const [loading, setLoading] = useState(true);
 
     );
 }
+
+export default TourNuocNgoai;

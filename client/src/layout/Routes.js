@@ -6,6 +6,7 @@ import GioiThieu from "./gioi-thieu/GioiThieu";
 import TourNhatBan from "./du-lich-nuoc-ngoai/chau-a/tour-nhat-ban/TourNhatBan";
 import CamNang from "./cam-nang/CamNang";
 import NotFound from "./NotFound";
+import TourNuocNgoai from "./du-lich-nuoc-ngoai/TourNuocNgoai";
 
 
 /**
@@ -28,7 +29,7 @@ function Routes() {
           <GioiThieu />
         </Route>
         <Route path="/du-lich-nuoc-ngoai/:region/:tourName">
-          <TourNhatBan />
+          <TourNuocNgoai />
         </Route>
         <Route path="/du-lich-nuoc-ngoai">
         </Route>
