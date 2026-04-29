@@ -18,6 +18,17 @@ function TourFrame() {
                 </Link>
                 <NewDashBoardNav toggleNav={toggleNav} mobileMenuOpen={mobileMenuOpen} />
             </div>
+
+            // Add photos slideshow component
+
+            // Add tour's title and basic description component
+
+            // Add a reservation form for specific tour
+
+            // Add itinerary of the tour component
+
+            // Add tour's policies and extra
+            
         </>
     )
 }
