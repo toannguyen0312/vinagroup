@@ -8,6 +8,10 @@ import { listTourDetailByParams } from "../../utils/api";
 
 
 function TourFrame() {
+    const initialFormState = {
+        
+    }
+
     const [tourData, setTourData] = useState(null);
 
     useEffect(() => {
