@@ -29,7 +29,7 @@ function Routes() {
           <GioiThieu />
         </Route>
         <Route path="/du-lich-nuoc-ngoai/:region/:tourName">
-          <TourNuocNgoai />
+          <TourNuocNgoai /> 
         </Route>
         <Route path="/du-lich-nuoc-ngoai">
         </Route>

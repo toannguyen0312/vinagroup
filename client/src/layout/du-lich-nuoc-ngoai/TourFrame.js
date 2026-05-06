@@ -9,7 +9,15 @@ import { listTourDetailByParams } from "../../utils/api";
 
 function TourFrame() {
     const initialFormState = {
-        
+        /*
+        tour_id
+        region_id
+        name
+        slug
+        short_description
+        tour_price
+        tour_remaining_seat
+        */
     }
 
     const [tourData, setTourData] = useState(null);
