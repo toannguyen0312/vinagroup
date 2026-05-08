@@ -1,9 +1,24 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import TourSchedule from "./TourSchedule";
 
 function TourReservationForm({ tourSchedule = [] }) {
 
 
+    return (
+        <>
+            <h5>Đặt Tour</h5>
+            <div className="card">
+                <div className="card-body">
+                    <form>
+                        
+                    </form>
+                </div>
+            </div>
+        </>
+    )
+
+
+    /*
     return (
         <>
             <h5>Đặt Tour</h5>
@@ -34,7 +49,8 @@ function TourReservationForm({ tourSchedule = [] }) {
                 </div>
             </div>
         </>
-    );
+    ); 
+    */
 }
 
 export default TourReservationForm;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 import NewDashBoardNav from "../dashboard/NewDashBoardNav";
 import logovinagroup from "../dashboard/logovinagroup.jpg";
@@ -18,20 +18,40 @@ function TourFrame() {
         tour_price
         tour_remaining_seat
         */
+       tour_name: "",
+       tour_short_description: "",
+       tour_price: "",
+       tour_remaining_seat: "",
     }
 
-    const [tourData, setTourData] = useState(null);
+      const history = useHistory();
+      const { region, tourName } = useParams();
+      
+      const [formData, setFormData] = useState({ ...initialFormState });
+      const [tourError, setTourError] = useState(null);
+      const [error, setError] = useState(null);
+    
+    //Load Tour
 
-    useEffect(() => {
-        const controller = new AbortController();
-        listTourDetailByParams(region, tourName, controller.signal)
-            .then(setTourData)
-            .catch(console.error);
-        
-            return () => {
-                controller.abort();
-            };
-    }, [region, tourName]);
+    useEffect(loadTour, [region, tourName])
+
+    function loadTour() {
+        const abortController = new AbortController();
+
+        setTourError(null);
+
+        listTourDetailByParams(region, tourName, abortController.signal)
+            .then((data) =>
+                setFormData({
+                    tour_name: data.tour_name,
+                    tour_short_description: data.tour_short_description,
+                    tour_price: data.tour_price,
+                    tour_remaining_seat: data.tour_remaining_seat,
+                })
+            )
+            .catch(setTourError);
+        return () => abortController.abort();
+    }
 
     return (
         <>
@@ -48,7 +68,13 @@ function TourFrame() {
 
             // Add tour's title and basic description component
             <div>
-                <h3></h3>
+                <h3>{formData.tour_name}</h3>
+                <p>{formData.tour_price}</p>
+                <p>{formData.price}</p>
+            </div>
+            <div>
+                <h3>Highlights</h3>
+                <p>{formData.tour_short_description}</p>
             </div>
 
             // Add a reservation form for specific tour
