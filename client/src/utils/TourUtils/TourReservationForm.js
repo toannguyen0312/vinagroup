@@ -10,7 +10,7 @@ function TourReservationForm({ tourSchedule = [] }) {
             <div className="card">
                 <div className="card-body">
                     <form>
-                        
+                        <button type="button" className="btn">Chọn Ngày</button>
                     </form>
                 </div>
             </div>
