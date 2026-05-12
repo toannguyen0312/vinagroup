@@ -8,10 +8,11 @@ function TourReservationForm({ tourSchedule = [] }) {
         <>
             <h5>Đặt Tour</h5>
             <div className="card">
-                <div className="card-body">
-                    <form>
-                        <button type="button" className="btn">Chọn Ngày</button>
-                    </form>
+                <div className="card-body">                    
+                    <button type="button" className="btn">Chọn Ngày</button>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </>

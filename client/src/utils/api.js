@@ -74,14 +74,6 @@ export async function listTours(signal) {
   return await fetchJson(url, { headers, signal }, []);
 }
 
-export async function listToursByParams (region, tourName, signal) {
-  const encodeRegion = encodeURIComponent(region || "");
-  const encodeTourName = encodeURIComponent(tourName || "");
-  const url = new URL (`${API_BASE_URL}/du-lich-nuoc-ngoai/${encodeRegion}/${encodeTourName}`);
-
-  return await fetchJson(url, { headers, signal }, null);
-}
-
 export async function getTourSchedulesByParams (region, tourName, signal) {
   const url = `${API_BASE_URL}/api/tours/${region}/${tourName}/schedules`;
   return await fetchJson(url, { headers, signal }, []);
@@ -90,4 +82,12 @@ export async function getTourSchedulesByParams (region, tourName, signal) {
 export async function getTourByParams(region, tourName, signal) {
   const url = `${API_BASE_URL}/api/tours/${region}/${tourName}`;
   return await fetchJson(url, { headers, signal }, null);
+}
+
+export async function listTourDetailByParams(region, tourName, signal) {
+  const encodeRegion = encodeURIComponent(region || "");
+  const encodeTourName = encodeURIComponent(tourName || "");
+  const url = new URL (`${API_BASE_URL}/du-lich-nuoc-ngoai/${encodeRegion}/${encodeTourName}`);
+
+  return await fetchJson(url, { headers, signal }, []);
 }
