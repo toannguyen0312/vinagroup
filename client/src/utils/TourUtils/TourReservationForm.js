@@ -11,7 +11,30 @@ function TourReservationForm({ tourSchedule = [] }) {
                 <div className="card-body">                    
                     <button type="button" className="btn">Chọn Ngày</button>
                     <div>
-                        
+                        <h4>Ngày xuất phát:</h4>
+                        <h4></h4>
+                    </div>
+                    <div>
+                        <h4>Giá người lớn:</h4>
+                    </div>
+                    <div>
+                        <h4>Giá trẻ em(từ 5-11 tuổi):</h4>
+                    </div>
+                    <div>
+                        <h4>Giá trẻ nhỏ(dưới 5 tuổi):</h4>
+                    </div>
+
+                    <h3>Tổng số khách</h3>
+                    <div className="card">
+                        <div>
+                            <h3>Nguời lớn</h3>
+                        </div>
+                        <div>
+                            <h3>Trẻ em(từ 5-11 tuổi)</h3>
+                        </div>
+                        <div>
+                            <h3>Trẻ nhỏ(dưới 5 tuổi)</h3>
+                        </div>
                     </div>
                 </div>
             </div>
