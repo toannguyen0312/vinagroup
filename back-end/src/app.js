@@ -36,7 +36,7 @@ app.get('/api/health', (req, res) => {
 
 // API Routes
 app.use("/api/tourschedule", tourScheduleRouter);
-app.use("/api/tours", toursRouter);
+app.use("/api/du-lich-nuoc-ngoai", toursRouter);
 
 // Error handlers (must be last)
 app.use(notFound);
