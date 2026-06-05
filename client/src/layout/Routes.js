@@ -3,7 +3,6 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import GioiThieu from "./gioi-thieu/GioiThieu";
-import TourNhatBan from "./du-lich-nuoc-ngoai/chau-a/tour-nhat-ban/TourNhatBan";
 import CamNang from "./cam-nang/CamNang";
 import NotFound from "./NotFound";
 import TourNuocNgoai from "./du-lich-nuoc-ngoai/TourNuocNgoai";
@@ -28,10 +27,14 @@ function Routes() {
         <Route path="/gioi-thieu">
           <GioiThieu />
         </Route>
-        <Route path="/du-lich-nuoc-ngoai/:region/:tourName">
-          < TourFrame/> 
+        <Route exact path="/du-lich-nuoc-ngoai">
+          <TourNuocNgoai />
         </Route>
-        <Route path="/du-lich-nuoc-ngoai">
+        <Route exact path="/du-lich-nuoc-ngoai/:region">
+          <TourRegion />
+        </Route>
+        <Route path="/du-lich-nuoc-ngoai/:region/:tourName">
+          <TourFrame />
         </Route>
         <Route path="/du-lich-trong-nuoc">
         </Route>
