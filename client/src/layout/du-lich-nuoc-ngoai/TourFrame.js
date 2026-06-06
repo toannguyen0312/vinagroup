@@ -86,3 +86,5 @@ function TourFrame() {
         </>
     )
 }
+
+export default TourFrame;
