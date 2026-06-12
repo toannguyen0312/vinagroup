@@ -1,0 +1,22 @@
+[
+  {
+    "region_name": "Châu Á",
+    "region_slug": "chau-a"
+  },
+  {
+    "region_name": "Châu Âu",
+    "region_slug": "chau-au"
+  },
+  {
+    "region_name": "Châu Mỹ",
+    "region_slug": "chau-my"
+  },
+  {
+    "region_name": "Châu Đại Dương",
+    "region_slug": "chau-dai-duong"
+  },
+  {
+    "region_name": "Châu Phi",
+    "region_slug": "chau-phi"
+  }
+]

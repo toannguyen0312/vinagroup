@@ -1,13 +1,7 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
- */
-exports.seed = async function(knex) {
-  // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
-  ]);
+const regionsData = require("./00-regions.json");
+
+exports.seed = function (knex) {
+  return knex
+    .raw("TRUNCATE TABLE region RESTART IDENTITY CASCADE")
+    .then(() => knex("region").insert(regionsData));
 };
