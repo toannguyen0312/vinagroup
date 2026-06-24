@@ -30,6 +30,12 @@ function TourFrame() {
       const [formData, setFormData] = useState({ ...initialFormState });
       const [tourError, setTourError] = useState(null);
       const [error, setError] = useState(null);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+
+      const toggleNav = () => {
+        setMobileMenuOpen((prev) => !prev);
+      };
     
     //Load Tour
 
@@ -64,9 +70,6 @@ function TourFrame() {
                 </Link>
                 <NewDashBoardNav toggleNav={toggleNav} mobileMenuOpen={mobileMenuOpen} />
             </div>
-             // Add photos slideshow component
-
-            // Add tour's title and basic description component
             <div>
                 <h3>{formData.tour_name}</h3>
                 <p>{formData.tour_price}</p>
@@ -76,12 +79,6 @@ function TourFrame() {
                 <h3>Highlights</h3>
                 <p>{formData.tour_short_description}</p>
             </div>
-
-            // Add a reservation form for specific tour
-
-            // Add itinerary of the tour component
-
-            // Add tour's policies and extras
             
         </>
     )

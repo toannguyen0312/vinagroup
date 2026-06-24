@@ -13,8 +13,8 @@ async function list(req, res) {
  * Read a specific tour
  */
 async function read(req, res) {
-  const { tourId } = req.params;
-  const data = await toursService.read(tourId);
+  const { tourName } = req.params;
+  const data = await toursService.read(tourName);
   
   if (!data) {
     return res.status(404).json({ error: `Tour ${tourId} not found` });
@@ -48,8 +48,8 @@ async function update(req, res) {
  * Delete a tour
  */
 async function destroy(req, res) {
-  const { tourId } = req.params;
-  await toursService.destroy(tourId);
+  const { tourName } = req.params;
+  await toursService.destroy(tourName);
   res.sendStatus(204);
 }
 
