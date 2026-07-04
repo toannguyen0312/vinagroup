@@ -1,5 +1,17 @@
 const knex = require("../db/connection");
 
+function toSlug(value = "") {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 /**
  * List all tours
  */
@@ -8,10 +20,32 @@ function list() {
 }
 
 /**
- * Read a specific tour by ID
+ * Read a specific tour by region and tourName (supports full name or slug)
  */
-function read(tourId) {
-  return knex("tours").select("*").where({ tour_id: tourId }).first();
+async function read(region, tourName) {
+  const decodedRegion = decodeURIComponent(region || "");
+  const decodedTourName = decodeURIComponent(tourName || "");
+  const normalizedQuerySlug = toSlug(decodedTourName);
+
+  const records = await knex("tours as t")
+    .leftJoin("region as r", "t.region_id", "r.region_id")
+    .select("t.*")
+    .modify((queryBuilder) => {
+      if (decodedRegion) {
+        queryBuilder.where("r.region_slug", decodedRegion);
+      }
+    });
+
+  return (
+    records.find((tour) => {
+      const tourSlug = toSlug(tour.tour_name || "");
+      return (
+        (tour.tour_name || "") === decodedTourName ||
+        tourSlug === normalizedQuerySlug ||
+        (normalizedQuerySlug && tourSlug.startsWith(`${normalizedQuerySlug}-`))
+      );
+    }) || null
+  );
 }
 
 /**

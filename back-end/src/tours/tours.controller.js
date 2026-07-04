@@ -13,14 +13,7 @@ async function list(req, res) {
  * Read a specific tour
  */
 async function read(req, res) {
-  const { tourName } = req.params;
-  const data = await toursService.read(tourName);
-  
-  if (!data) {
-    return res.status(404).json({ error: `Tour ${tourId} not found` });
-  }
-  
-  res.json({ data });
+  res.json({ data: res.locals.tour });
 }
 
 /**
@@ -37,7 +30,7 @@ async function create(req, res) {
 async function update(req, res) {
   const updatedTour = {
     ...req.body.data,
-    id: req.params.tourId,
+    id: res.locals.tour.tour_id,
   };
   
   const data = await toursService.update(updatedTour);
@@ -48,8 +41,7 @@ async function update(req, res) {
  * Delete a tour
  */
 async function destroy(req, res) {
-  const { tourName } = req.params;
-  await toursService.destroy(tourName);
+  await toursService.destroy(res.locals.tour.tour_id);
   res.sendStatus(204);
 }
 
@@ -57,15 +49,16 @@ async function destroy(req, res) {
  * Validation middleware to check if tour exists
  */
 async function tourExists(req, res, next) {
-  const { tourId } = req.params;
-  const tour = await toursService.read(tourId);
+  const { region, tourName } = req.params;
+  const decodedTourName = decodeURIComponent(tourName);
+  const tour = await toursService.read(region, tourName);
   
   if (tour) {
     res.locals.tour = tour;
     return next();
   }
   
-  next({ status: 404, message: `Tour ${tourId} cannot be found.` });
+  next({ status: 404, message: `Tour ${decodedTourName} cannot be found.` });
 }
 
 module.exports = {

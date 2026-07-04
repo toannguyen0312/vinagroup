@@ -1,55 +1,55 @@
 [
   {
-    "tour_name": "Tour Nhật Bản 7 ngày",
+    "tour_name": "tour-nhat-ban",
     "region_id": 1,
     "tour_short_description": "Khám phá vẻ đẹp của Nhật Bản với tham quan các di tích lịch sử",
     "tour_remaining_seat": 25,
     "tour_price": 1500.00
   },
   {
-    "tour_name": "Tour Thái Lan 5 ngày",
+    "tour_name": "tour-thai-lan",
     "region_id": 1,
     "tour_short_description": "Trải nghiệm văn hóa Thái Lan cổ kính qua Bangkok và Chiang Mai",
     "tour_remaining_seat": 30,
     "tour_price": 900.00
   },
   {
-    "tour_name": "Tour Pháp 10 ngày",
+    "tour_name": "tour-phap",
     "region_id": 2,
     "tour_short_description": "Tham quan Paris, Versailles và các thành phố nổi tiếng của Pháp",
     "tour_remaining_seat": 20,
     "tour_price": 2200.00
   },
   {
-    "tour_name": "Tour Đức - Áo 8 ngày",
+    "tour_name": "tour-duc-ao",
     "region_id": 2,
     "tour_short_description": "Khám phá cảnh đẹp và lịch sử của Đức và Áo",
     "tour_remaining_seat": 22,
     "tour_price": 1900.00
   },
   {
-    "tour_name": "Tour Mỹ 12 ngày",
+    "tour_name": "tour-my",
     "region_id": 3,
     "tour_short_description": "Tham quan New York, Las Vegas, Los Angeles và Grand Canyon",
     "tour_remaining_seat": 15,
     "tour_price": 2500.00
   },
   {
-    "tour_name": "Tour Canada 10 ngày",
+    "tour_name": "tour-canada",
     "region_id": 3,
     "tour_short_description": "Khám phá Niagara Falls, Rocky Mountains và thành phố Vancouver",
     "tour_remaining_seat": 18,
     "tour_price": 2300.00
   },
   {
-    "tour_name": "Tour Úc 9 ngày",
+    "tour_name": "tour-uc",
     "region_id": 4,
     "tour_short_description": "Tham quan Sydney, Uluru và Great Barrier Reef",
     "tour_remaining_seat": 20,
     "tour_price": 2100.00
   },
   {
-    "tour_name": "Tour Ai Cập 6 ngày",
+    "tour_name": "tour-ai-cap",
     "region_id": 5,
     "tour_short_description": "Khám phá kim tự tháp, Sphinx và các di tích cổ đại Ai Cập",
     "tour_remaining_seat": 25,

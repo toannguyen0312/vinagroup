@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import NewDashBoardNav from "../dashboard/NewDashBoardNav";
 import logovinagroup from "../dashboard/logovinagroup.jpg";
@@ -24,12 +24,11 @@ function TourFrame() {
        tour_remaining_seat: "",
     }
 
-      const history = useHistory();
       const { region, tourName } = useParams();
       
       const [formData, setFormData] = useState({ ...initialFormState });
       const [tourError, setTourError] = useState(null);
-      const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 
@@ -44,18 +43,24 @@ function TourFrame() {
     function loadTour() {
         const abortController = new AbortController();
 
+        setIsLoading(true);
         setTourError(null);
 
         listTourDetailByParams(region, tourName, abortController.signal)
-            .then((data) =>
+            .then((data) => {
+                if (!data) {
+                    throw new Error("Tour data not found.");
+                }
+
                 setFormData({
                     tour_name: data.tour_name,
                     tour_short_description: data.tour_short_description,
                     tour_price: data.tour_price,
                     tour_remaining_seat: data.tour_remaining_seat,
-                })
-            )
-            .catch(setTourError);
+                });
+            })
+            .catch(setTourError)
+            .finally(() => setIsLoading(false));
         return () => abortController.abort();
     }
 
@@ -70,10 +75,12 @@ function TourFrame() {
                 </Link>
                 <NewDashBoardNav toggleNav={toggleNav} mobileMenuOpen={mobileMenuOpen} />
             </div>
+            {isLoading ? <p>Loading tour...</p> : null}
+            {tourError ? <p>Unable to load this tour: {tourError.message}</p> : null}
             <div>
                 <h3>{formData.tour_name}</h3>
                 <p>{formData.tour_price}</p>
-                <p>{formData.price}</p>
+                <p>{formData.tour_remaining_seat}</p>
             </div>
             <div>
                 <h3>Highlights</h3>
