@@ -80,7 +80,7 @@ function TourFrame() {
             <div>
                 <h3>{formData.tour_name}</h3>
                 <p>{formData.tour_price}</p>
-                <p>{formData.tour_remaining_seat}</p>
+                <p>{formData.tour_remaining_seat}</p> //Do not need when displaying the default of specific tour
             </div>
             <div>
                 <h3>Highlights</h3>
