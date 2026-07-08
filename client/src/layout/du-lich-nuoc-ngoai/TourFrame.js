@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import NewDashBoardNav from "../dashboard/NewDashBoardNav";
+import TourReservationForm from "../../utils/TourUtils/TourReservationForm";
 import logovinagroup from "../dashboard/logovinagroup.jpg";
 import { listTourDetailByParams } from "../../utils/api";
 
@@ -80,13 +81,13 @@ function TourFrame() {
             <div>
                 <h3>{formData.tour_name}</h3>
                 <p>{formData.tour_price}</p>
-                <p>{formData.tour_remaining_seat}</p> //Do not need when displaying the default of specific tour
+                <p>{formData.tour_remaining_seat}</p>
             </div>
             <div>
                 <h3>Highlights</h3>
                 <p>{formData.tour_short_description}</p>
             </div>
-            
+            <TourReservationForm />
         </>
     )
 }
