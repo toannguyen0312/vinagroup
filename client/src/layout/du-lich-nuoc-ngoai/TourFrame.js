@@ -29,7 +29,7 @@ function TourFrame() {
       
       const [formData, setFormData] = useState({ ...initialFormState });
       const [tourError, setTourError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+      const [isLoading, setIsLoading] = useState(false);
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 
@@ -87,7 +87,10 @@ function TourFrame() {
                 <h3>Highlights</h3>
                 <p>{formData.tour_short_description}</p>
             </div>
-            <TourReservationForm />
+            <TourReservationForm
+                region={region}
+                tourName={tourName}
+            />
         </>
     )
 }

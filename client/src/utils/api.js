@@ -74,7 +74,7 @@ export async function listTours(signal) {
   return await fetchJson(url, { headers, signal }, []);
 }
 
-export async function getTourSchedulesByParams (region, tourName, signal) {
+export async function listTourSchedulesByParams (region, tourName, signal) {
   const url = `${API_BASE_URL}/api/tours/${region}/${tourName}/schedules`;
   return await fetchJson(url, { headers, signal }, []);
 }
