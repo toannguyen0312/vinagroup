@@ -10,7 +10,7 @@ function TourReservationForm({ region, tourName }) {
         address: "",
     };
 
-    const [formData, setFormData] = useState({...initialFormState});
+    const[formData, setFormData] = useState({...initialFormState});
     const[selectedScheduleId, setSelectedScheduleId] = useState(null);
     const[tourSchedule, setTourSchedule] = useState([]);
     const [tourScheduleError, setTourScheduleError] = useState(null);
@@ -66,6 +66,14 @@ function TourReservationForm({ region, tourName }) {
                                         onChange={(event)} => setSelectedScheduleId(event.target.value)} */
                                 >
                                     <option value="" disabled>Ngày khởi hành</option>
+                                    {tourSchedule.map((schedule) => {
+                                        <option
+                                            key={schedule.schedule_id}
+                                            value={schedule.schedule_id}
+                                        >
+                                            {formatDate(schedule.start_date)}
+                                        </option>
+                                    })}
                                 </select>
                                 <div>
                                     <p className="card-text">Số lượng khách</p>
