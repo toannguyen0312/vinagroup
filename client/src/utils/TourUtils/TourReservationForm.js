@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 
 import { listTourSchedulesByParams } from "../api";
+import { formatDate } from "react-datepicker/dist/dist/date_utils.js";
 
 function TourReservationForm({ region, tourName }) {
     const initialFormState= {
