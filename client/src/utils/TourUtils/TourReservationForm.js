@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 
 import { listTourSchedulesByParams } from "../api";
-import { formatDate } from "react-datepicker/dist/dist/date_utils.js";
+import { formatDate } from "../formatDate";
 
 function TourReservationForm({ region, tourName }) {
     const initialFormState= {
+        scheduleId: "",
         name: "",
         phoneNumber: "",
         email: "",
@@ -12,7 +13,6 @@ function TourReservationForm({ region, tourName }) {
     };
 
     const[formData, setFormData] = useState({...initialFormState});
-    const[selectedScheduleId, setSelectedScheduleId] = useState(null);
     const[tourSchedule, setTourSchedule] = useState([]);
     const [tourScheduleError, setTourScheduleError] = useState(null);
 
@@ -49,35 +49,51 @@ function TourReservationForm({ region, tourName }) {
                 <div className="card-body">
                     <h4 className="card-title">Đặt Tour</h4>
                     <form>
-                        <div className="card">
-                            <div className="card-body">
+                        <div className="container">
+                            <div className="card">
+                                <div className="card-body">
 
+                                </div>
                             </div>
-                        </div>
-                        <div className="card">
-                            <div className="card-body">
-                                <h6 className="card-title">1. Thông tin đặt chỗ</h6>
-                                <label htmlFor="departureDate" className="form-label">
-                                    Ngày khởi hành
-                                </label>
-                                <select
-                                    id="departureDate"
-                                    className="form-select booking-date-select"
-                                    /* value={selectedScheduleId}
-                                        onChange={(event)} => setSelectedScheduleId(event.target.value)} */
-                                >
-                                    <option value="" disabled>Ngày khởi hành</option>
-                                    {tourSchedule.map((schedule) => {
-                                        <option
-                                            key={schedule.schedule_id}
-                                            value={schedule.schedule_id}
-                                        >
-                                            {formatDate(schedule.start_date)}
-                                        </option>
-                                    })}
-                                </select>
-                                <div>
-                                    <p className="card-text">Số lượng khách</p>
+                            <div className="card">
+                                <div className="card-body">
+                                    <h6 className="card-title">1. Thông tin đặt chỗ</h6>
+                                        <div className="row">
+                                            <div className="col-6">
+                                                <label htmlFor="departureDate" className="form-label">
+                                                    Ngày khởi hành
+                                                </label>
+                                                <select
+                                                    name="scheduleId"
+                                                    className="form-select booking-date-select"
+                                                    value={formData.scheduleId}
+                                                    onChange={handleChange}
+                                                >
+                                                    <option value="" disabled>Ngày khởi hành</option>
+                                                    {tourSchedule.map((schedule) => {
+                                                        return (
+                                                            <option
+                                                                key={schedule.schedule_id}
+                                                                value={schedule.schedule_id}
+                                                            >
+                                                                {formatDate(schedule.start_date)}
+                                                            </option>
+                                                        );
+                                                    })}
+                                                </select>
+                                            </div>
+                                            <div className="col-6">
+                                                <label htmlFor="departureDate" className="form-label">
+                                                    Số lượng khách
+                                                </label>
+                                                <select
+                                                    className="form-select"
+                                                >
+                                                    <option>Người lớn</option>
+                                                    <option>Trẻ em</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
