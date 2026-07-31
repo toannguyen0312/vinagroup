@@ -86,12 +86,18 @@ function TourReservationForm({ region, tourName }) {
                                                 <label htmlFor="departureDate" className="form-label">
                                                     Số lượng khách
                                                 </label>
-                                                <select
-                                                    className="form-select"
-                                                >
-                                                    <option>Người lớn</option>
-                                                    <option>Trẻ em</option>
-                                                </select>
+                                                <div className="">
+                                                    <p>Người lớn</p>
+                                                    <button>-</button>
+                                                    <span></span>
+                                                    <button>+</button>
+                                                </div>
+                                                <div className="">
+                                                    <p>Trẻ em</p>
+                                                    <button>-</button>
+                                                    <span></span>
+                                                    <button>+</button>
+                                                </div>
                                             </div>
                                         </div>
                                 </div>
@@ -100,6 +106,24 @@ function TourReservationForm({ region, tourName }) {
                         <div className="card">
                             <div className="card-body">
                                 <h6 className="card-title">2. Thông tin liên hệ</h6>
+                                <div className="row g-3">
+                                    <div className="col-6">
+                                        <label htmlFor="customerName" className="form-label">Họ và tên</label>
+                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập họ và tên"></input>
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="customerName" className="form-label">Số điện thoại</label>
+                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập số điện thoại"></input> 
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="customerName" className="form-label">Email</label>
+                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập email"></input>
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="customerName" className="form-label">Địa chỉ</label>
+                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập địa chỉ liên hệ"></input> 
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
