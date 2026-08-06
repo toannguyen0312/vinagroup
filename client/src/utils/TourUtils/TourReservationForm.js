@@ -10,6 +10,8 @@ function TourReservationForm({ region, tourName }) {
         phoneNumber: "",
         email: "",
         address: "",
+        adultCount: 1,
+        childCount: 0,
     };
 
     const[formData, setFormData] = useState({...initialFormState});
@@ -88,15 +90,48 @@ function TourReservationForm({ region, tourName }) {
                                                 </label>
                                                 <div className="">
                                                     <p>Người lớn</p>
-                                                    <button>-</button>
-                                                    <span></span>
-                                                    <button>+</button>
+                                                    <button 
+                                                        type="button"
+                                                        onClick={() => 
+                                                            setFormData({
+                                                                ...formData,
+                                                                adultCount: Math.max(1,formData.adultCount - 1),
+                                                            })
+                                                        }>-
+                                                    </button>
+                                                    <span>{formData.adultCount}</span>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => 
+                                                            setFormData({
+                                                                ...formData,
+                                                                adultCount: Math.max(1, formData.adultCount + 1),
+                                                            })
+                                                        }>+
+                                                    </button>
                                                 </div>
                                                 <div className="">
                                                     <p>Trẻ em</p>
-                                                    <button>-</button>
-                                                    <span></span>
-                                                    <button>+</button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => 
+                                                            setFormData({
+                                                                ...formData,
+                                                                childCount: Math.max(0, formData.childCount - 1),
+                                                            })
+                                                        }>-
+                                                    </button>
+                                                    <span>{formData.childCount}</span>
+                                                    <button
+                                                        className="form-control"
+                                                        type="button"
+                                                        onClick={() => 
+                                                            setFormData({
+                                                                ...formData,
+                                                                childCount: Math.max(0, formData.childCount + 1 ),
+                                                            })
+                                                        }>+
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
