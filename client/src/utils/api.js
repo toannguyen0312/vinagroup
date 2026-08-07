@@ -91,3 +91,16 @@ export async function listTourDetailByParams(region, tourName, signal) {
 
   return await fetchJson(url, { headers, signal }, null);
 }
+
+export async function createTourReservation(tourReservation, signal) {
+  const url = `${API_BASE_URL}/api/tourschedule`;
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: tourReservation}),
+    signal,
+  };
+
+  let data = await fetchJson(url, options);
+  return data;
+}

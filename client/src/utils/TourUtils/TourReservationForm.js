@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-import { listTourSchedulesByParams } from "../api";
+import { listTourSchedulesByParams, createTourReservation } from "../api";
 import { formatDate } from "../formatDate";
 
 function TourReservationForm({ region, tourName }) {
@@ -17,6 +17,7 @@ function TourReservationForm({ region, tourName }) {
     const[formData, setFormData] = useState({...initialFormState});
     const[tourSchedule, setTourSchedule] = useState([]);
     const [tourScheduleError, setTourScheduleError] = useState(null);
+    const [error, setError] = useState(false);
 
     const handleChange = ({ target }) => {
         setFormData({
@@ -43,6 +44,16 @@ function TourReservationForm({ region, tourName }) {
             });
         return () => abortController.abort();
     }, [region, tourName]);
+
+        const handleSubmit = async (event) => {
+            event.preventDefault();
+
+            try {
+                await createTourReservation(formData);
+            } catch (error) {
+                setError(error);
+            }
+        };
     
 
     return (
@@ -123,7 +134,7 @@ function TourReservationForm({ region, tourName }) {
                                                     </button>
                                                     <span>{formData.childCount}</span>
                                                     <button
-                                                        className="form-control"
+                                                        className=""
                                                         type="button"
                                                         onClick={() => 
                                                             setFormData({
