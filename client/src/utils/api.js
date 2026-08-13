@@ -93,7 +93,7 @@ export async function listTourDetailByParams(region, tourName, signal) {
 }
 
 export async function createTourReservation(tourReservation, signal) {
-  const url = `${API_BASE_URL}/api/toursReservation`;
+  const url = `${API_BASE_URL}/api/tours-reservation`;
   const options = {
     method: "POST",
     headers,

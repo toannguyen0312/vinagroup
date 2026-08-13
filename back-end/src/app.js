@@ -7,6 +7,7 @@ const notFound = require("./errors/notFound");
 // Route imports
 const tourScheduleRouter = require("./tours/tourSchedule.router");
 const toursRouter = require("./tours/tours.router");
+const toursReservationsRouter = require("./tours/toursReservations.router");
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.get('/api/health', (req, res) => {
 // API Routes
 app.use("/api/tourschedule", tourScheduleRouter);
 app.use("/api/du-lich-nuoc-ngoai", toursRouter);
+app.use("/api/tours-reservation", toursReservationsRouter);
 
 // Error handlers (must be last)
 app.use(notFound);
