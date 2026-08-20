@@ -49,6 +49,15 @@ function hasProperties(...properties) {
     };
 }
 
+const hasRequiredProperties = hasProperties(
+    "adultCount",
+    "childCount",
+    "name",
+    "mobile_number",
+    "address",
+    "name",
+);
+
 async function list(req, res) {
   const data = await toursReservationsService.list();
   res.json({ data });
