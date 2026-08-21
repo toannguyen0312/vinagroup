@@ -58,6 +58,44 @@ const hasRequiredProperties = hasProperties(
     "name",
 );
 
+function validMobileNumber(req, res, next) {
+    const { mobile_number } = req.body.data;
+    const isPhoneNumber = /^(?:\+84|84|0)(3|5|7|8|9)\d{8}$/.test(mobile_number);
+
+    if(isPhoneNumber) {
+        return next();
+    } else {
+        next({
+            status: 400,
+            message: `Vui lòng nhập đúng số điện thoại`,
+        })
+    }
+}
+
+function mobileIsNumber(req, res, next) {
+    const { mobile_number } = req.body.data;
+    const inputArray = [];
+
+    mobile_number.split("").forEach(character => {
+        if(Number(character)) {
+            inputArray.push(character);
+        }
+    });
+
+    const testString = inputArray.join('');
+
+    const isNumber = Number(testString);
+
+    if(isNumber) {
+        return next();
+    } else {
+        next({
+            status:400,
+            message: `Vui lòng nhập đúng số điện thoại`,
+        })
+    }
+}
+
 async function list(req, res) {
   const data = await toursReservationsService.list();
   res.json({ data });
