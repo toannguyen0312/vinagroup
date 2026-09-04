@@ -45,7 +45,7 @@ function hasProperties(...properties) {
             next();
         } catch(error) {
             next(error);
-        }
+        } 
     };
 }
 

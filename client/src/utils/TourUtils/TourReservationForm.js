@@ -45,15 +45,15 @@ function TourReservationForm({ region, tourName }) {
         return () => abortController.abort();
     }, [region, tourName]);
 
-        const handleSubmit = async (event) => {
-            event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-            try {
-                await createTourReservation(formData);
-            } catch (error) {
-                setError(error);
-            }
-        };
+        try {
+            await createTourReservation(formData);
+        } catch (error) {
+            setError(error);
+        }
+    };
     
 
     return (
