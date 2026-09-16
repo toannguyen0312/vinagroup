@@ -57,6 +57,7 @@ const hasRequiredProperties = hasProperties(
     "address",
     "name",
     "tourSchedule_id",
+    "email",
 );
 
 function validMobileNumber(req, res, next) {
@@ -97,13 +98,50 @@ function mobileIsNumber(req, res, next) {
     }
 }
 
-function adultCountIsNumber()
+function adultCountIsNumber(req, res, next) {
+    const { adultCount } = req.body.data;
 
-function childCountIsNumber()
+    if(!Number.isInteger(adultCount) || adultCount <= 0) {
+        return next({
+            status: 400,
+            message: "adultCount must be a whole number greater than zero",
+        });
+    }
 
-function emailIsValid()
+    next();
+}
 
-function addressIsValid()
+function childCountIsNumber(req, res, next) {
+    const { childCount } = req.body.data;
+
+    if(!Number.isInteger(childCount) || childCount < 0) {
+        return next({
+            status: 400,
+            message: "childCount must be a whole number and cannot be negative",
+        });
+    }
+
+    next();
+}
+
+function emailIsValid(req, res, next) {
+    const { email } = req.body.data;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailRegex.test(email)) {
+        return next({
+            status: 400,
+            message: "Email is invalid",
+        })
+    }
+
+    next();
+}
+
+function addressIsValid(req, res, next) {
+    
+}
 
 function scheduleIdIsValid()
 
