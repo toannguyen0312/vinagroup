@@ -56,6 +56,7 @@ const hasRequiredProperties = hasProperties(
     "mobile_number",
     "address",
     "name",
+    "tourSchedule_id",
 );
 
 function validMobileNumber(req, res, next) {
@@ -95,6 +96,16 @@ function mobileIsNumber(req, res, next) {
         })
     }
 }
+
+function adultCountIsNumber()
+
+function childCountIsNumber()
+
+function emailIsValid()
+
+function addressIsValid()
+
+function scheduleIdIsValid()
 
 async function list(req, res) {
   const data = await toursReservationsService.list();
