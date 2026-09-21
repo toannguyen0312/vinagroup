@@ -142,17 +142,46 @@ function emailIsValid(req, res, next) {
 function addressIsValid(req, res, next) {
     const { address } = req.body.data;
 
-    if(typeof address !== "string" || address.trim().length < 5) {
+    if(typeof address !== "string" || address.trim().length < 5 || address.trim().length > 255) {
         return next({
             status: 400,
-            message: "Address is invalid",
-        });
+            message: "Address must be between 5 and 255 characters",
+        })
     }
 
+    res.locals.address = address.trim();
     next();
 }
 
-function scheduleIdIsValid()
+function tourScheduleIdIsValid(req, res, next) {
+    const tourSchedule_id = Number(req.body.data.tourSchedule_id);
+
+    if(!Number.isInteger(tourSchedule_id) || tourSchedule_id <= 0) {
+        return next({
+            status: 400,
+            message: "tourSchedule_id must be a positive whole number"
+        });
+    }
+
+    req.body.data.tourSchedule_id = tourSchedule_id;
+    next();
+}
+
+async function tourScheduleExists(req, res, next) {
+    const { tourSchedule_id } = req.body.data;
+
+    const schedule = await toursReservationsService.read(tourSchedule_id);
+
+    if(!schedule) {
+        return next({
+            status: 400,
+            message: `Tour schedule ${tourSchedule_id} does not exist`,
+        })
+    }
+
+    res.locals.tourSchedule = schedule;
+    next();
+}
 
 async function list(req, res) {
   const data = await toursReservationsService.list();
@@ -166,5 +195,18 @@ async function create(req, res) {
 
 module.exports = {
   list: asyncErrorBoundary(list),
-  create: asyncErrorBoundary(create),
+  create: [
+    hasProperties,
+    hasRequiredProperties,
+    hasValidProperties,
+    mobileIsNumber,
+    addressIsValid,
+    tourScheduleIdIsValid,
+    tourScheduleExists,
+    emailIsValid,
+    childCountIsNumber,
+    adultCountIsNumber,
+    validMobileNumber,
+    asyncErrorBoundary(create),
+  ],
 };
