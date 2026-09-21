@@ -140,7 +140,16 @@ function emailIsValid(req, res, next) {
 }
 
 function addressIsValid(req, res, next) {
-    
+    const { address } = req.body.data;
+
+    if(typeof address !== "string" || address.trim().length < 5) {
+        return next({
+            status: 400,
+            message: "Address is invalid",
+        });
+    }
+
+    next();
 }
 
 function scheduleIdIsValid()
