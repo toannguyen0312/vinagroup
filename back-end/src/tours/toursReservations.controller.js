@@ -1,4 +1,5 @@
 const toursReservationsService = require("./toursReservations.service");
+const tourScheduleService = require("./tourSchedule.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 const VALID_PROPERTIES =[
@@ -36,7 +37,7 @@ function hasProperties(...properties) {
 
         try{
             properties.forEach((property) => {
-                if(!data[property]) {
+                if(data[property] === undefined || data[property] === null) {
                     const error = new Error(`A ${property} property is required`);
                     error.status = 400;
                     throw error;
@@ -52,7 +53,6 @@ function hasProperties(...properties) {
 const hasRequiredProperties = hasProperties(
     "adultCount",
     "childCount",
-    "name",
     "mobile_number",
     "address",
     "name",
@@ -170,7 +170,7 @@ function tourScheduleIdIsValid(req, res, next) {
 async function tourScheduleExists(req, res, next) {
     const { tourSchedule_id } = req.body.data;
 
-    const schedule = await toursReservationsService.read(tourSchedule_id);
+    const schedule = await tourScheduleService.read(tourSchedule_id);
 
     if(!schedule) {
         return next({
