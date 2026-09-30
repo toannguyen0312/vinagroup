@@ -1,4 +1,5 @@
 const toursService = require("./tours.service");
+const tourScheduleService = require("./tourSchedule.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 /**
@@ -14,6 +15,12 @@ async function list(req, res) {
  */
 async function read(req, res) {
   res.json({ data: res.locals.tour });
+}
+
+async function readSchedules(req, res) {
+  const tourId = res.locals.tour.tour_id;
+  const data = await tourScheduleService.listByTourId(tourId);
+  res.json({ data });
 }
 
 /**
@@ -64,6 +71,7 @@ async function tourExists(req, res, next) {
 module.exports = {
   list: asyncErrorBoundary(list),
   read: [asyncErrorBoundary(tourExists), asyncErrorBoundary(read)],
+  readSchedules: [asyncErrorBoundary(tourExists), asyncErrorBoundary(readSchedules)],
   create: asyncErrorBoundary(create),
   update: [
     asyncErrorBoundary(tourExists),

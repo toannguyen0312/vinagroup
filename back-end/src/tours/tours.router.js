@@ -9,6 +9,11 @@ router
   .all(methodNotAllowed);
 
 router
+  .route("/:region/:tourName/schedules")
+  .get(controller.readSchedules)
+  .all(methodNotAllowed);
+
+router
   .route("/:region/:tourName")
   .get(controller.read)
   .put(controller.update)

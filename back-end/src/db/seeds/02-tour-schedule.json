@@ -1,0 +1,58 @@
+[
+  {
+    "tour_id": 1,
+    "lich_trinh": "Ngày 1: Đến Tokyo - Tham quan Shibuya, Tokyo Tower. Ngày 2: Fuji - ngắm núi Phú Sĩ. Ngày 3: Kyoto - chùa Kiyomizu, phố cổ Gion. Ngày 4: Osaka - Dotonbori, Universal Studios.",
+    "start_date": "2026-10-05",
+    "end_date": "2026-10-09",
+    "price": 12000000
+  },
+  {
+    "tour_id": 2,
+    "lich_trinh": "Ngày 1: Đến Bangkok - Tham quan chợ nổi, đền Wat Arun. Ngày 2: Chiang Mai - làng văn hóa, chợ đêm. Ngày 3: Phuket - biển và nghỉ dưỡng. Ngày 4: Trở về Việt Nam.",
+    "start_date": "2026-10-12",
+    "end_date": "2026-10-17",
+    "price": 15000000
+  },
+  {
+    "tour_id": 3,
+    "lich_trinh": "Ngày 1: Đến Paris - thăm Eiffel Tower, Louvre. Ngày 2: Versailles, trung tâm thành phố. Ngày 3: Montmartre, nhà thờ Sacre Coeur. Ngày 4: Đi du lịch vùng Provence.",
+    "start_date": "2026-10-20",
+    "end_date": "2026-10-27",
+    "price": 22000000
+  },
+  {
+    "tour_id": 4,
+    "lich_trinh": "Ngày 1: Đến Berlin - trung tâm thành phố. Ngày 2: Vienna - cung điện, nhà hát. Ngày 3: Salzburg - thành phố cổ, núi non. Ngày 4: Tự do khám phá, về nước.",
+    "start_date": "2026-11-01",
+    "end_date": "2026-11-07",
+    "price": 19000000
+  },
+  {
+    "tour_id": 5,
+    "lich_trinh": "Ngày 1: New York - Times Square, Central Park. Ngày 2: Las Vegas - show diễn, casino. Ngày 3: Grand Canyon. Ngày 4: Los Angeles - Hollywood. Ngày 5: Về Việt Nam.",
+    "start_date": "2026-11-10",
+    "end_date": "2026-11-16",
+    "price": 25000000
+  },
+  {
+    "tour_id": 6,
+    "lich_trinh": "Ngày 1: Đến Toronto - thành phố hiện đại. Ngày 2: Niagara Falls. Ngày 3: Vancouver - bờ biển đẹp. Ngày 4: Rocky Mountains. Ngày 5: Về Việt Nam.",
+    "start_date": "2026-11-18",
+    "end_date": "2026-11-24",
+    "price": 23000000
+  },
+  {
+    "tour_id": 7,
+    "lich_trinh": "Ngày 1: Sydney - Opera House, Harbour Bridge. Ngày 2: Cairns - Great Barrier Reef. Ngày 3: Uluru - hoang mạc. Ngày 4: Khám phá thành phố Melbourne.",
+    "start_date": "2026-12-01",
+    "end_date": "2026-12-07",
+    "price": 21000000
+  },
+  {
+    "tour_id": 8,
+    "lich_trinh": "Ngày 1: Cairo - Kim tự tháp, Sphinx. Ngày 2: Luxor - đền cổ. Ngày 3: Nile Cruise. Ngày 4: Khám phá Alexandria. Ngày 5: Về Việt Nam.",
+    "start_date": "2026-12-10",
+    "end_date": "2026-12-16",
+    "price": 16000000
+  }
+]

@@ -86,8 +86,8 @@ function TourReservationForm({ region, tourName }) {
                                                     {tourSchedule.map((schedule) => {
                                                         return (
                                                             <option
-                                                                key={schedule.schedule_id}
-                                                                value={schedule.schedule_id}
+                                                                key={schedule.tourSchedule_id}
+                                                                value={schedule.tourSchedule_id}
                                                             >
                                                                 {formatDate(schedule.start_date)}
                                                             </option>
