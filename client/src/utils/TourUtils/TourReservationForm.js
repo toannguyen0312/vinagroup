@@ -61,7 +61,7 @@ function TourReservationForm({ region, tourName }) {
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title">Đặt Tour</h4>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="container">
                             <div className="card">
                                 <div className="card-body">
@@ -172,6 +172,11 @@ function TourReservationForm({ region, tourName }) {
                                 </div>
                             </div>
                         </div>
+                        <button
+                            type="submit"
+                            >
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>
