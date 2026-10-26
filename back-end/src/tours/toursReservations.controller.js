@@ -196,7 +196,6 @@ async function create(req, res) {
 module.exports = {
   list: asyncErrorBoundary(list),
   create: [
-    hasProperties,
     hasRequiredProperties,
     hasValidProperties,
     mobileIsNumber,

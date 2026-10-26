@@ -5,9 +5,9 @@ import { formatDate } from "../formatDate";
 
 function TourReservationForm({ region, tourName }) {
     const initialFormState= {
-        scheduleId: "",
+        tourSchedule_id: "",
         name: "",
-        phoneNumber: "",
+        mobile_number: "",
         email: "",
         address: "",
         adultCount: 1,
@@ -47,9 +47,20 @@ function TourReservationForm({ region, tourName }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError(null);
 
         try {
-            await createTourReservation(formData);
+            await createTourReservation({
+                ...formData,
+                tourSchedule_id: Number(formData.tourSchedule_id),
+                adultCount: Number(formData.adultCount),
+                childCount: Number(formData.childCount),
+                name: formData.name.trim(),
+                mobile_number: formData.mobile_number.trim(),
+                email: formData.email.trim(),
+                address: formData.address.trim(),
+            });
+            setFormData({...initialFormState});
         } catch (error) {
             setError(error);
         }
@@ -77,10 +88,11 @@ function TourReservationForm({ region, tourName }) {
                                                     Ngày khởi hành
                                                 </label>
                                                 <select
-                                                    name="scheduleId"
+                                                    name="tourSchedule_id"
                                                     className="form-select booking-date-select"
-                                                    value={formData.scheduleId}
+                                                    value={formData.tourSchedule_id}
                                                     onChange={handleChange}
+                                                    required
                                                 >
                                                     <option value="" disabled>Ngày khởi hành</option>
                                                     {tourSchedule.map((schedule) => {
@@ -104,20 +116,20 @@ function TourReservationForm({ region, tourName }) {
                                                     <button 
                                                         type="button"
                                                         onClick={() => 
-                                                            setFormData({
-                                                                ...formData,
-                                                                adultCount: Math.max(1,formData.adultCount - 1),
-                                                            })
+                                                            setFormData((prev) = ({
+                                                                ...prev,
+                                                                adultCount: Math.max(1, Number(prev.adultCount) - 1),
+                                                            }))
                                                         }>-
                                                     </button>
                                                     <span>{formData.adultCount}</span>
                                                     <button
                                                         type="button"
                                                         onClick={() => 
-                                                            setFormData({
-                                                                ...formData,
-                                                                adultCount: Math.max(1, formData.adultCount + 1),
-                                                            })
+                                                            setFormData((prev) => ({
+                                                                ...prev,
+                                                                adultCount: Math.max(1, Number(prev.adultCount + 1)),
+                                                            }))
                                                         }>+
                                                     </button>
                                                 </div>
@@ -126,10 +138,10 @@ function TourReservationForm({ region, tourName }) {
                                                     <button
                                                         type="button"
                                                         onClick={() => 
-                                                            setFormData({
-                                                                ...formData,
-                                                                childCount: Math.max(0, formData.childCount - 1),
-                                                            })
+                                                            setFormData((prev) => ({
+                                                                ...prev,
+                                                                childCount: Math.max(0, Number(prev.childCount) - 1),
+                                                            }))
                                                         }>-
                                                     </button>
                                                     <span>{formData.childCount}</span>
@@ -137,10 +149,10 @@ function TourReservationForm({ region, tourName }) {
                                                         className=""
                                                         type="button"
                                                         onClick={() => 
-                                                            setFormData({
-                                                                ...formData,
-                                                                childCount: Math.max(0, formData.childCount + 1 ),
-                                                            })
+                                                            setFormData((prev) => ({
+                                                                ...prev,
+                                                                childCount: Math.max(0, Number(prev.childCount) + 1),
+                                                            }))
                                                         }>+
                                                     </button>
                                                 </div>
@@ -155,19 +167,19 @@ function TourReservationForm({ region, tourName }) {
                                 <div className="row g-3">
                                     <div className="col-6">
                                         <label htmlFor="customerName" className="form-label">Họ và tên</label>
-                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập họ và tên"></input>
+                                        <input type="text" className="form-control" id="customerName" name="name" onChange={handleChange} value={formData.name} placeholder="Nhập họ và tên" required></input>
                                     </div>
                                     <div className="col-6">
-                                        <label htmlFor="customerName" className="form-label">Số điện thoại</label>
-                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập số điện thoại"></input> 
+                                        <label htmlFor="customerMobileNumber" className="form-label">Số điện thoại</label>
+                                        <input type="tel" className="form-control" id="customerMobileNumber" name="mobile_number" onChange={handleChange} value={formData.mobile_number} placeholder="Nhập số điện thoại" required></input> 
                                     </div>
                                     <div className="col-6">
-                                        <label htmlFor="customerName" className="form-label">Email</label>
-                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập email"></input>
+                                        <label htmlFor="customerEmail" className="form-label">Email</label>
+                                        <input type="email" className="form-control" id="customerEmail" name="email" onChange={handleChange} value={formData.email} placeholder="Nhập email" required></input>
                                     </div>
                                     <div className="col-6">
-                                        <label htmlFor="customerName" className="form-label">Địa chỉ</label>
-                                        <input type="text" className="form-control" id="customerName" placeholder="Nhập địa chỉ liên hệ"></input> 
+                                        <label htmlFor="customerAddress" className="form-label">Địa chỉ</label>
+                                        <input type="text" className="form-control" id="customerAddress" name="address" onChange={handleChange} value={formData.address} placeholder="Nhập địa chỉ liên hệ" required></input> 
                                     </div>
                                 </div>
                             </div>
@@ -177,6 +189,11 @@ function TourReservationForm({ region, tourName }) {
                             >
                             Submit
                         </button>
+                        {error ? (
+                            <p className="text-danger mt-2 mb-0">
+                                {error.message || "Không thể đặt chỗ. Vui lòng thử lại."}
+                            </p>
+                        ) : null}
                     </form>
                 </div>
             </div>
