@@ -14,9 +14,11 @@ function TourReservationForm({ region, tourName }) {
         childCount: 0,
     };
 
-    const[formData, setFormData] = useState({...initialFormState});
-    const[tourSchedule, setTourSchedule] = useState([]);
+    const [formData, setFormData] = useState({...initialFormState});
+    const [tourSchedule, setTourSchedule] = useState([]);
     const [tourScheduleError, setTourScheduleError] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
     const [error, setError] = useState(false);
 
     const handleChange = ({ target }) => {
