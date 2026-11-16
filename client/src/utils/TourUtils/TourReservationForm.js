@@ -116,7 +116,7 @@ function TourReservationForm({ region, tourName }) {
                                                     <button 
                                                         type="button"
                                                         onClick={() => 
-                                                            setFormData((prev) = ({
+                                                            setFormData((prev) => ({
                                                                 ...prev,
                                                                 adultCount: Math.max(1, Number(prev.adultCount) - 1),
                                                             }))
